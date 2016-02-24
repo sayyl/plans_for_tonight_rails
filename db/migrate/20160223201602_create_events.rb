@@ -4,9 +4,12 @@ class CreateEvents < ActiveRecord::Migration
       t.references :corporate, index: true 
       t.references :category, index: true
       t.string :name
+      t.string :location
       t.text :description 
       t.datetime :show_date 
-      t.string :img_url
+      t.time :start_time
+      t.integer :duration 
+      t.string :image
       t.integer :viewed 
       t.timestamps
     end

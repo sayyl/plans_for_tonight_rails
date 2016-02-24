@@ -1,0 +1,17 @@
+<h1>Events#index</h1>
+<p>Find me in app/views/events/index.html.erb</p>
+<%= link_to "Sign Up", new_corporate_path %>
+<%= link_to "Consumer Sign Up", new_consumer_path %>
+
+<hr>
+
+<div> 
+ <% @events.each do |event| %>
+    <%= image_tag event.image_url(:thumb) if event.image? %>
+    <h2>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h2>
+    <h3>Description: <%= event.description %></h3>
+    <h4> Show Date: <%= event.show_date %> | Start Time <%= event.start_time %></h4>
+    <h4> Duration <%= event.duration %> </h4>
+  <% end %>
+</div>
+

@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160223203025) do
   create_table "consumers", force: true do |t|
     t.string   "user_name"
     t.string   "email"
-    t.string   "password_digested"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20160223203025) do
   create_table "corporates", force: true do |t|
     t.string   "name"
     t.string   "address_1"
-    t.string   "addtess_2"
+    t.string   "address_2"
     t.string   "city"
     t.string   "province"
     t.string   "postal_code"
@@ -50,9 +50,12 @@ ActiveRecord::Schema.define(version: 20160223203025) do
     t.integer  "corporate_id"
     t.integer  "category_id"
     t.string   "name"
+    t.string   "location"
     t.text     "description"
     t.datetime "show_date"
-    t.string   "img_url"
+    t.time     "start_time"
+    t.integer  "duration"
+    t.string   "image"
     t.integer  "viewed"
     t.datetime "created_at"
     t.datetime "updated_at"

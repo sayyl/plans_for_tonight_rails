@@ -3,7 +3,7 @@ class CreateConsumers < ActiveRecord::Migration
     create_table :consumers do |t|
       t.string :user_name 
       t.string :email 
-      t.string :password_digested 
+      t.string :password_digest
       t.timestamps
     end
   end

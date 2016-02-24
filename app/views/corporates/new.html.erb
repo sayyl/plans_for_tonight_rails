@@ -1,2 +1,68 @@
 <h1>Corporates#new</h1>
 <p>Find me in app/views/corporates/new.html.erb</p>
+<%= form_for  @corporate do |f| %>
+  <% if @corporate.errors.any? %>
+    <div>
+      <%= pluralize(@corporate.errors.count, "error") %> The Account Can not be created. Please Try again. 
+      <ul>
+        <%@corporate.errors.full_messages.each do |msg| %> 
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div> 
+    <%= f.label :name, "Company Name" %>
+    <%= f.text_field :name, placeholder: "name" %>
+  </div>
+  <div>
+    <%= f.label :address_1 %>
+    <%= f.text_field :address_1, placeholder: "Unit#" %>
+    <%= f.label :address_2 %>
+    <%= f.text_field :address_2, placeholder: "street# and name" %><br>
+    <%= f.label :city %>
+    <%= f.text_field :city, placeholder: "City" %>
+    <%= f.label :province %>
+    <%= f.text_field :province, placeholder: "Prov" %><br>
+    <%= f.label :postal_code %>
+    <%= f.text_field :postal_code, placeholder: "PC" %>
+    <%= f.label :country %>
+    <%= f.text_field :country, placeholder: "Country" %>
+  </div>
+  <div> 
+    <%= f.label :phone, "Contact" %>
+    <%= f.telephone_field :phone, placeholder: "contact number" %>
+  </div>
+  <div> 
+    <%= f.label :website_url, "Website" %>
+    <%= f.url_field :website_url, placeholder: "your website's URL" %>
+  </div>
+  <div>
+    <%= f.label :email, "Email" %>
+    <%= f.email_field :email, placeholder: "John@example.com" %>
+  </div>
+  <div>
+    <%= f.label :business_number, "Business Number" %>
+    <%= f.text_field :business_number, placeholder: "business number" %>
+  </div> 
+  <div> 
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password, placeholder: "password" %>
+  </div>
+  <div> 
+    <%= f.label :password_confirmation, "Confirm Password" %>
+    <%= f.password_field :password_confirmation, placeholder: "password" %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+

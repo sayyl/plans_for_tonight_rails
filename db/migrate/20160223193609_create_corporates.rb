@@ -4,7 +4,7 @@ class CreateCorporates < ActiveRecord::Migration
 
       t.string :name 
       t.string :address_1
-      t.string :addtess_2
+      t.string :address_2
       t.string :city 
       t.string :province 
       t.string :postal_code

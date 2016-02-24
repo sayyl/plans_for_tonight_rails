@@ -1,0 +1,46 @@
+<%= form_for @event, :html => {:multipart => true} do |f| %>
+  <div>
+    <%= f.label :name, "Title" %><br>
+    <%= f.text_field :name, placeholder: "Title" %>
+  </div>
+  <div>
+    <%= f.label :location %><br>
+    <%= f.text_field :location, placeholder: "Location" %>
+  </div>
+  <div>
+    <%= f.label :show_date, "Event Date" %>
+    <%= f.date_field :show_date %>
+  </div>
+  <div>
+    <%= f.label :start_time, "Start time" %>
+    <%= f.time_field :start_time, placeholder: "start time" %>
+  </div>
+  <div>
+    <%= f.label :duration, "Duration" %>
+    <%= f.text_field :duration, placeholder: "duration" %>
+  </div>
+  <div>
+    <%= f.label :image, "Image" %>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, placeholder: "description" %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %> 
+  </div>
+<% end %>
+
+<%= form_for @event do |f| %>
+  <% if @event.errors.any? %>
+    <div>
+      <%= pluralize(@event.errors.count, "error") %> prevented this event from being submitted
+      <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
