@@ -5,7 +5,7 @@ PlansForTonightRails::Application.routes.draw do
   resources :events
   resources :corporates, only: [:index, :new, :create, :show]
   resources :consumers, only: [:new, :create, :show, :edit]
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create]
   root to: 'events#index'
   # The priority is based upon order of creation: first created -> highesst priority.
   # See how all your routes lay out with "rake routes".
