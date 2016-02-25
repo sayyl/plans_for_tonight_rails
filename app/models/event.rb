@@ -3,8 +3,8 @@ class Event < ActiveRecord::Base
   belongs_to :category
   has_many :tickets
 
-  validates: :name, presence: true
-  validates: :location, presence: true
+  validates :name, presence: true
+  validates :location, presence: true
   validates: :description, presence: true
   validates: :show_date, presence: true
   validates: :start_time, presence: true
