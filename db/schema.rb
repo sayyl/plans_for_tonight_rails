@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160223203025) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: true do |t|
     t.string   "name"
     t.string   "description"
@@ -61,8 +64,8 @@ ActiveRecord::Schema.define(version: 20160223203025) do
     t.datetime "updated_at"
   end
 
-  add_index "events", ["category_id"], name: "index_events_on_category_id"
-  add_index "events", ["corporate_id"], name: "index_events_on_corporate_id"
+  add_index "events", ["category_id"], name: "index_events_on_category_id", using: :btree
+  add_index "events", ["corporate_id"], name: "index_events_on_corporate_id", using: :btree
 
   create_table "tickets", force: true do |t|
     t.integer  "event_id"
@@ -74,7 +77,7 @@ ActiveRecord::Schema.define(version: 20160223203025) do
     t.datetime "updated_at"
   end
 
-  add_index "tickets", ["event_id"], name: "index_tickets_on_event_id"
+  add_index "tickets", ["event_id"], name: "index_tickets_on_event_id", using: :btree
 
   create_table "transactions", force: true do |t|
     t.integer  "consumer_id"
@@ -84,6 +87,6 @@ ActiveRecord::Schema.define(version: 20160223203025) do
     t.datetime "updated_at"
   end
 
-  add_index "transactions", ["consumer_id"], name: "index_transactions_on_consumer_id"
+  add_index "transactions", ["consumer_id"], name: "index_transactions_on_consumer_id", using: :btree
 
 end
