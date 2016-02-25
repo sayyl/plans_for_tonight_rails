@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
       user = Consumer.find_by(email: params[:email])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        binding.pry
         redirect_to events_path, notice: "Welcome back #{user.user_name}"
       else
         flash.now[:alert] = "Log in Failed"

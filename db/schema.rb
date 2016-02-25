@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160223203025) do
     t.string   "email"
     t.string   "password_digest"
     t.integer  "business_number"
-    t.boolean  "verified"
+    t.boolean  "verified",        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
