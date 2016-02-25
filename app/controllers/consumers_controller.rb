@@ -15,7 +15,7 @@ class ConsumersController < ApplicationController
   def create 
     @consumer = Consumer.new(consumer_params)
     if @consumer.save 
-      session[:consumer_id] = @consumer.id 
+      session[:user_id] = @consumer.id 
       redirect_to events_path
     else
       render :new 
@@ -28,7 +28,7 @@ class ConsumersController < ApplicationController
   protected
 
   def consumer_params
-    params.require(:consumer).permit(:username, :email, :password, :password_confirmation)
+    params.require(:consumer).permit(:user_name, :email, :password, :password_confirmation)
   end
 end
 

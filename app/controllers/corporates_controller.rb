@@ -15,7 +15,7 @@ class CorporatesController < ApplicationController
   def create 
     @corporate = Corporate.new(corporate_params)
     if @corporate.save 
-      session[:corporate_id] = @corporate.id 
+      session[:user_id] = @corporate.id 
       redirect_to events_path
     else
       render :new 
