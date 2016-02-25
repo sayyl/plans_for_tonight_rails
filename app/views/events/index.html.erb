@@ -1,9 +1,10 @@
 <h1>Events#index</h1>
 <p>Find me in app/views/events/index.html.erb</p>
-<%= link_to "Sign Up", new_corporate_path %>
-<%= link_to "Consumer Sign Up", new_consumer_path %>
+
 <% if !current_user %> 
 <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
+<%= link_to "Sign Up", new_corporate_path %>
+<%= link_to "Consumer Sign Up", new_consumer_path %>
 <% end %>
 <hr>
 

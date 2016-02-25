@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         session[:role] = "consumer"
-        redirect_to events_path, notice: "Welcome back #{user.user_name}"
+        redirect_to events_path, notice: "Welcome back #{user.name}"
       else
         flash.now[:alert] = "Log in Failed"
         render :new

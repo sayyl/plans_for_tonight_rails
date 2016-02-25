@@ -28,7 +28,7 @@ class ConsumersController < ApplicationController
   protected
 
   def consumer_params
-    params.require(:consumer).permit(:user_name, :email, :password, :password_confirmation)
+    params.require(:consumer).permit(:name, :email, :password, :password_confirmation)
   end
 end
 
