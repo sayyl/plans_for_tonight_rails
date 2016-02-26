@@ -2,15 +2,19 @@
 <p>Find me in app/views/categories/show.html.erb</p>
 <%= link_to "Edit Category", edit_category_path(@category) %>
 
-<div> 
+<select class="filters-select">
+  <option value="*">show all</option>
+  <%= @category.events.pluck(:location).uniq.each do |location| %>
+    <option value=".loc_<%= location %>"> <%= location %> </option>
+  <% end %>
+</select>
+
+<div class="grid"> 
  <% @category.events.each do |event| %>
-    <%= image_tag event.image_url(:thumb) if event.image? %>
-  
-    
-    <h2>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h2>
-    <h2><%= @category.name %></h2>
-    <h3>Description: <%= event.description %></h3>
-    <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> 
+    <div class="loc_<%= event.location %>">
+      <%= image_tag link_to event.image_url(:thumb), event_path(event.id) if event.image? %>
+      <h2>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h2>
+    </div>
   <% end %>
 </div>
 

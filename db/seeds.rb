@@ -55,18 +55,20 @@ Faker::Config.locale = :'en-CA'
 #   )
 # end
 
-500.times do |n|
-  type_array = ["General", "Adult", "Child"]
-  event_id = Event.all.sample.id
-  transaction_id = Transaction.all.sample.id
-  price = Faker::Number.between(20, 150)
-  type = type_array.sample
-  confirmation_num = Faker::Number.number(8)
-  Ticket.create!(
-    event_id: event_id,
-    transaction_id: transaction_id,
-    price: price,
-    type: type,
-    confirmation_num: confirmation_num
-  )
-end
+
+###CHANGE COLUMN
+# 500.times do |n|
+#   type_array = ["General", "Adult", "Child"]
+#   event_id = Event.all.sample.id
+#   transaction_id = Transaction.all.sample.id
+#   price = Faker::Number.between(20, 150)
+#   type = type_array.sample
+#   confirmation_num = Faker::Number.number(8)
+#   Ticket.create!(
+#     event_id: event_id,
+#     transaction_id: transaction_id,
+#     price: price,
+#     type: type,
+#     confirmation_num: confirmation_num
+#   )
+# end
