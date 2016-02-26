@@ -17,3 +17,4 @@ Faker::Config.locale = :'en-CA'
                password_confirmation: password
                )
 end
+

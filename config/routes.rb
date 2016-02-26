@@ -1,7 +1,5 @@
 PlansForTonightRails::Application.routes.draw do
   
-
-
   resources :events
   resources :corporates, only: [:index, :new, :create, :show]
   resources :consumers, only: [:new, :create, :show, :edit]

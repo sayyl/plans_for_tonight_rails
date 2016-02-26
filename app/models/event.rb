@@ -1,6 +1,5 @@
 class Event < ActiveRecord::Base
   belongs_to :corporate
-  belongs_to :category
   has_many :tickets
 
   validates :name, presence: true
