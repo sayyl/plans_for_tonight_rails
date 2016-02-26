@@ -12,5 +12,8 @@ class ApplicationController < ActionController::Base
       return @current_user
     end
 
+    @categories = Category.all 
+    
+
   helper_method :current_user, :revert_user
 end

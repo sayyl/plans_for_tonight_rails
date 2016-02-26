@@ -3,7 +3,7 @@
 <%= link_to "New Event", new_event_path %>
 <p> Current Events </p>
 <% current_user.events.each do |event| %>
-  <h2><%= event.name %> (<%= link_to "edit", edit_event_path(event) %>, <%= link_to "delete", event_path(event), method: :delete,confirm: "You sure?" %>) | <%= event.location %> </h2>
+  <h2><%= event.name %> (<%= link_to "edit", edit_category_event_path(event.category_id,event) %>, <%= link_to "delete", category_event_path(event.category_id, event), method: :delete,confirm: "You sure?" %>) | <%= event.location %> </h2>
   <%= image_tag event.image_url(:thumb) if event.image? %>
   <p>Event Title: <%= link_to event.name, event_path(event.id) %></p>
   <p>Description: <%= event.description %></p>

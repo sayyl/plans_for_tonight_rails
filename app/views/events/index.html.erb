@@ -7,15 +7,16 @@
 <%= link_to "Consumer Sign Up", new_consumer_path %>
 <% end %>
 <hr>
-
+<div> 
   <% @categories.each do |category| %>
-  <%= link_to category_path(category.name) do %> 
-  <%= image_tag category.image_url(:thumb) if category.image? %>
+    <%= link_to  category_path(category.id) do %> 
+    <%= image_tag category.image_url(:thumb) if category.image? %>
+     <%= image_tag category.remote_image_url if category.remote_image_url %>
+    <% end %>
   <% end %>
-  <% end %>
+</div>
 
 <div> 
->>>>>>> f3745771e97245e27eda98408dd8149e841a5c36
  <% @events.each do |event| %>
     <%= image_tag event.image_url(:thumb) if event.image? %>
     <h2>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h2>

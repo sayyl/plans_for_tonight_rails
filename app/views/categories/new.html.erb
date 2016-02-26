@@ -1,36 +1,3 @@
 <h1>Categories#new</h1>
 <p>Find me in app/views/categories/new.html.erb</p>
-<%= form_for @category, :html => {:multipart => true} do |f| %>
-  <div>
-    <%= f.label :name, "Name" %><br>
-    <%= f.text_field :name, placeholder: "Name" %>
-  </div>
-  <div>
-    <%= f.label :image, "Image" %>
-    <%= f.file_field :image %>
-  </div>
-  <div>
-   <%= f.label :remote_image_url, "or image URL" %>
-   <%= f.text_field :remote_image_url %>
- </div>
-  <div>
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description, placeholder: "description" %>
-  </div>
-  <div>
-    <%= f.submit "Submit" %> 
-  </div>
-<% end %>
-
-<%= form_for @category do |f| %>
-  <% if @category.errors.any? %>
-    <div>
-      <%= pluralize(@category.errors.count, "error") %> prevented this event from being submitted
-      <ul>
-        <% @category.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-<% end %>
+<%= render 'form' %>
