@@ -1,6 +1,4 @@
 PlansForTonightRails::Application.routes.draw do
-  
-
 
 
   resources :events

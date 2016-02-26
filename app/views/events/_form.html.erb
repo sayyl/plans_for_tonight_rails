@@ -28,6 +28,10 @@
     <%= f.file_field :image %>
   </div>
   <div>
+    <%= f.label :remote_image_url, "or image URL" %>
+    <%= f.text_field :remote_image_url %>
+  </div>
+  <div>
     <%= f.label :description, "Description" %>
     <%= f.text_area :description, placeholder: "description" %>
   </div>

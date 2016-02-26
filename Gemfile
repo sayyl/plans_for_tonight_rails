@@ -30,12 +30,16 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'bcrypt-ruby', '~> 3.0.0'
-
 gem 'carrierwave'
 gem 'rmagick'
 
 gem 'pry'
+
+##Faker for db seeding
+gem 'faker'
+
+# Factory Girl
+gem 'factory_girl_rails', '~> 4.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
