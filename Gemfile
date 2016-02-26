@@ -30,7 +30,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'bcrypt-ruby', '~> 3.0.0'
+
 
 gem 'carrierwave'
 gem 'rmagick'
@@ -53,3 +53,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'bootstrap-sass'
