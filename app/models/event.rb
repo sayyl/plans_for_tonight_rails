@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
   validates :show_date, presence: true
   validates :start_time, presence: true
   validates :duration, numericality: { only_integer: true }
-  validates :image, presence: true
+  # validates :image, presence: true
 
   mount_uploader :image, ImageUploader
 end
