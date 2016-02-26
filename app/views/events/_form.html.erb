@@ -37,7 +37,7 @@
   </div>
   <div>
     <%= f.label :category_id, "Category" %>
-    <%= f.select('category_id', @category.collect{|r| [(r.name), r.id]}) %>
+    <%= f.select('category_id', @categories.collect{|r| [(r.name), r.id]}) %>
   </div>
  
   <div>

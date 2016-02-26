@@ -13,6 +13,7 @@
 <% if current_user %>
   Signed in as  <%= current_user.name %><%= link_to "Log Out", session_path("current"), method: :delete %> 
 <% end %> 
+ 
   
 <%= yield %>
 

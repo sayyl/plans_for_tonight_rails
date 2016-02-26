@@ -1,11 +1,11 @@
 class CategoriesController < ApplicationController
   
   def index
-    # @categories = Category.all
+    @categories = Category.all
   end
 
   def show
-    @category = Category.find(params[:name])
+    @category = Category.find(params[:id])
   end
 
   def new
@@ -21,12 +21,22 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit
+  def edit 
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update_attributes(category_params)
+      redirect_to categories_path
+    else 
+      render :edit 
+    end
   end
 
   protected
 
   def category_params 
-    params.require(:category).permit(:name, :description, :remote_image_url)
+    params.require(:category).permit(:name, :description, :image, :remote_image_url)
   end
 end
