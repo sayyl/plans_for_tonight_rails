@@ -31,8 +31,11 @@
     <%= f.label :description, "Description" %>
     <%= f.text_area :description, placeholder: "description" %>
   </div>
-    <%= f.label :category, "Category" %>
-    <%= f.text_area :category, placeholder: "category" %>
+  <div>
+    <%= f.label :category_id, "Category" %>
+    <%= f.select('category_id', @category.collect{|r| [(r.name), r.id]}) %>
+  </div>
+ 
   <div>
     <%= f.submit "Submit" %> 
   </div>

@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+#category_img {
+  width: 200px;
+  height: 200px;
+}
