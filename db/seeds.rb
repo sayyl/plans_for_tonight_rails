@@ -18,3 +18,21 @@ Faker::Config.locale = :'en-CA'
                )
 end
 
+Category.create!(name: "Music")
+Category.create!(name: "Sports")
+Category.create!(name: "Arts & Theatre")
+
+150.times do |n|
+  corporate_id = 1
+  category = Category.all.sample.id
+  name = Faker::App.name
+  location = Faker::Address.city
+  description = Faker::Lorem.sentences
+  show_date = Faker::Date.between(185.days.ago, Date.today)
+  start_time = Faker::Time.between(185.days.ago, Time.now, :all)
+  duration = Faker::Number.between(60, 240)
+  image = Faker::Placeholdit.image("100x100", 'jpg')
+  ticket_available = Faker::Number.between(50, 200)
+
+
+
