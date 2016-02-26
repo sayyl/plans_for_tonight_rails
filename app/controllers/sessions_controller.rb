@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       session[:role] = "corporate"
-      redirect_to events_path, notice: "Welcome back #{user.name}"
+      redirect_to corporates_path, notice: "Welcome back #{user.name}"
     else
       user = Consumer.find_by(email: params[:email])
       if user && user.authenticate(params[:password])

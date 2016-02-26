@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 
   def create 
     @event = Event.new(event_params)
-    # @event.corporate_id = current_corporate.id
+    @event.corporate_id = current_user.id
     if @event.save 
       redirect_to corporates_path
     else
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(
-      :name, :location,:show_date, :start_time, :duration, :image, :description, :viewed
+      :name, :location,:show_date, :start_time, :duration, :image, :description, :category, :viewed
     )
   end
 end
