@@ -8,8 +8,12 @@
 <% end %>
 <hr>
 
-<div>
+<%= link_to categories_show_path do %> 
+  <%= image_tag "music.jpg", id: "category_img"  %>
+<% end %>
 
+<div> 
+>>>>>>> f3745771e97245e27eda98408dd8149e841a5c36
  <% @events.each do |event| %>
     <%= image_tag event.image_url(:thumb) if event.image? %>
     <h2>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h2>
