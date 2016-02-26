@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226005129) do
+ActiveRecord::Schema.define(version: 20160226020643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160226005129) do
     t.integer  "viewed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ticket_available"
   end
 
   add_index "events", ["category"], name: "index_events_on_category", using: :btree
