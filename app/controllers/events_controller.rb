@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   
   def index
     @events = Event.all 
+    @categories = Category.all
   end
 
   def show
@@ -21,10 +22,6 @@ class EventsController < ApplicationController
 
   def create 
     @event = Event.new(event_params)
-    # puts "rohit"
-    # puts event_params[:corporate_id]
-    # puts event_params[:categoryrohit]
-    # puts params[:categoryrohit]
     @event.corporate_id = current_user.id
     if @event.save 
       redirect_to corporates_path

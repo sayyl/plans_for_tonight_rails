@@ -8,9 +8,11 @@
 <% end %>
 <hr>
 
-<%= link_to categories_show_path do %> 
-  <%= image_tag "music.jpg", id: "category_img"  %>
-<% end %>
+  <% @categories.each do |category| %>
+  <%= link_to category_path(category.name) do %> 
+  <%= image_tag category.image_url(:thumb) if category.image? %>
+  <% end %>
+  <% end %>
 
 <div> 
  <% @events.each do |event| %>

@@ -2,11 +2,9 @@ PlansForTonightRails::Application.routes.draw do
   
 
 
-  get "categories/index"
-  get "categories/show"
-  get "categories/new"
-  get "categories/edit"
+
   resources :events
+  resources :categories, only: [:index, :new, :create, :edit, :show]
   resources :corporates, only: [:index, :new, :create, :show]
   resources :consumers, only: [:new, :create, :show, :edit]
   resources :sessions, only: [:new, :create, :destroy]
