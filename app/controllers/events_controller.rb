@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   
   def index
     @events = Event.all 
+    @categories = Category.all
   end
 
   def show
@@ -9,22 +10,11 @@ class EventsController < ApplicationController
   end
 
   def new
-    @category = Category.all
     @event = Event.new
-    # @event = Event.new(event_params)
-    # if @event.save 
-    #   redirect_to events_path, notice: "#{@event.name} was added successfully."
-    # else
-    #   render :new 
-    # end
   end
 
   def create 
     @event = Event.new(event_params)
-    # puts "rohit"
-    # puts event_params[:corporate_id]
-    # puts event_params[:categoryrohit]
-    # puts params[:categoryrohit]
     @event.corporate_id = current_user.id
     if @event.save 
       redirect_to corporates_path
@@ -34,6 +24,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     @event = Event.find(params[:id])
   end
 
@@ -56,7 +47,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(
-      :name, :location,:show_date, :start_time, :duration, :image, :description, :ticket_available, :viewed, :category_id
+      :name, :location,:show_date, :start_time, :duration, :image, :description, :ticket_available, :viewed, :category_id, :remote_image_url
     )
   end
 end

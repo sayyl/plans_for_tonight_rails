@@ -1,2 +1,16 @@
 <h1>Categories#show</h1>
 <p>Find me in app/views/categories/show.html.erb</p>
+<%= link_to "Edit Category", edit_category_path(@category) %>
+
+<div> 
+ <% @category.events.each do |event| %>
+    <%= image_tag event.image_url(:thumb) if event.image? %>
+    <h2><%= event.category_id %></h2>
+    <h2><%= @category.id %></h2>
+
+    <h2>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h2>
+    <h3>Description: <%= event.description %></h3>
+    <h4> Show Date: <%= event.show_date %> | Start Time <%= event.start_time %></h4>
+    <h4> Duration <%= event.duration %> </h4>
+  <% end %>
+</div>
