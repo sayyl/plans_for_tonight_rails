@@ -9,11 +9,11 @@
   </div>
   <div>
     <%= f.label :show_date, "Event Date" %>
-    <%= f.date_field :show_date %>
+    <%= f.date_field :show_date, ignore_time: true  %>
   </div>
   <div>
-    <%= f.label :start_time, "Start time" %>
-    <%= f.time_field :start_time, placeholder: "start time" %>
+    <%= f.label :show_date, "Event Time" %>
+    <%= f.time_field :show_date, ignore_date: true %>
   </div>
   <div>
     <%= f.label :duration, "Duration" %>
