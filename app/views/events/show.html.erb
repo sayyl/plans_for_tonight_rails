@@ -1,11 +1,11 @@
 <h1>Events#show</h1>
 <p>Find me in app/views/events/show.html.erb</p>
+<%= link_to "Back to event category", category_path(@event.category_id)%><br/>
 
 
-<%= link_to "Back to all events", events_path %><br/>
-<%= image_tag @event.image_url(:thumb) if @event.image? %>
-<h3>Tickets available <%= @event.ticket_available %> 
-<h3><%= formatted_date(@event.show_date) %></h3>
-<h4>Start Time <%= @event.start_time %> | <%= @event.duration %> minutes</h4>
+
+<%= image_tag @event.image_url(:thumb) if @event.image? %><br>
+<%= @event.category_id %>
+<p>Tickets available <%= @event.ticket_available %></p>
+<h4><%= formatted_date(@event.show_date) %> | <%= @event.duration %> minutes</h4>
 <p><%= @event.description %></p>
-
