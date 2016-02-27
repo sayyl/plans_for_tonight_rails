@@ -3,10 +3,119 @@
   <head>
     <meta charset="utf-8">
     <title>Corporate Dashboard</title>
+    <style>
+      #container {
+        clear: all;
+        margin-top: 100px;
+      }
+    </style>
   </head>
   <body>
-  
-   
-  </div>
+
+    <div id="container" style="min-width: 310px; height: 400px"></div>  
+    
+
   </body>
+
+
+<footer>
+<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<script type="text/javascript">
+    var data = [
+      {
+        name : 'Marties Blowout Exravaganza',
+        data : [ 
+          [ '2016-01-01', 14 ],
+          [ '2016-01-02', 10 ],
+          [ '2016-01-03', 7 ],
+          [ '2016-01-04', 9 ],
+          [ '2016-01-05', 13 ],
+          [ '2016-01-06', 1 ],
+          [ '2016-01-07', 23 ],
+        ]
+      },
+      {
+        name : 'Womprat Nights Burlesque',
+        data : [ 
+          [ '2016-01-01', 44],
+          [ '2016-01-02', 34 ],
+          [ '2016-01-03', 43 ],
+          [ '2016-01-04', 73],
+          [ '2016-01-05', 12 ],
+          [ '2016-01-06', 16 ],
+          [ '2016-01-07', 4 ],
+        ]
+      },
+      {
+        name : 'HARRY POTTER LIVE',
+        data : [ 
+          [ '2016-01-01', 3],
+          [ '2016-01-02', 2 ],
+          [ '2016-01-03', 5],
+          [ '2016-01-04', 7],
+          [ '2016-01-05', 7 ],
+          [ '2016-01-06', 22 ],
+          [ '2016-01-07', 4 ],
+        ]
+      }];
+
+    $('#container').highcharts({
+        chart: {
+            type: 'area'
+        },
+        title: {
+            text: 'Ticket Sales'
+        },
+        subtitle: {
+            text: 'Subtitle Text'
+        },
+        xAxis: {
+            allowDecimals: false,
+            labels: {
+                formatter: function () {
+                  console.log(this);
+                    return this.value; // clean, unformatted number for year
+                }
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Tickets Sold'
+            },
+            labels: {
+                formatter: function () {
+                    return this.value;
+                }
+            }
+        },
+        tooltip: {
+            pointFormat: '{series.name}  <b>{point.y:,.0f}</b><br/>ticket sales in day {point.x}'
+        },
+        plotOptions: {
+            area: {
+                pointStart: 1,
+                marker: {
+                    enabled: false,
+                    symbol: 'circle',
+                    radius: 2,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                }
+            }
+        },
+        series: data
+    });
+
+</script>
+
+
+
+
+</footer>
+
 </html>
