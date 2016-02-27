@@ -3,9 +3,10 @@
 <%= link_to "Back to event category", category_path(@event.category_id)%><br/>
 
 
-
+<hr>
 <%= image_tag @event.image_url(:thumb) if @event.image? %><br>
 <%= @event.category_id %>
 <p>Tickets available <%= @event.ticket_available %></p>
 <h4><%= formatted_date(@event.show_date) %> | <%= @event.duration %> minutes</h4>
 <p><%= @event.description %></p>
+<hr>
