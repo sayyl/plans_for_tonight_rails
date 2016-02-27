@@ -4,4 +4,10 @@ class Category < ActiveRecord::Base
   validates :name, presence: true
 
   mount_uploader :image, ImageUploader
+
+
+  # def time(hours?)
+  #   self.events.where('created_at < ?', Time.now)
+  # end
+
 end

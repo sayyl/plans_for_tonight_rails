@@ -1,16 +1,55 @@
+<script>
+$( function() {
+  // init Isotope
+  var $grid = $('.grid').isotope({
+    itemSelector: '.element-item',
+    layoutMode: 'fitRows'
+  });
+  // filter functions
+  var filterFns = {
+    // show if number is greater than 50
+    numberGreaterThan50: function() {
+      var number = $(this).find('.number').text();
+      return parseInt( number, 10 ) > 50;
+    },
+    // show if name ends with -ium
+    ium: function() {
+      var name = $(this).find('.name').text();
+      return name.match( /ium$/ );
+    }
+  };
+  // bind filter on select change
+  $('.filters-select').on( 'change', function() {
+    // get filter value from option value
+    var filterValue = this.value;
+    // use filterFn if matches value
+    filterValue = filterFns[ filterValue ] || filterValue;
+    $grid.isotope({ filter: filterValue });
+  });
+  
+});
+</script>
+
 <h1>Categories#show</h1>
 <p>Find me in app/views/categories/show.html.erb</p>
 <%= link_to "Edit Category", edit_category_path(@category) %>
 
-<div> 
+<select class="filters-select">
+  <option value="*">show all</option>
+  <%= @category.events.pluck(:location).uniq.each do |location| %>
+    <option value=".<%= location %>"> <%= location %> </option>
+  <% end %>
+</select>
+
+<div class="grid"> 
  <% @category.events.each do |event| %>
-    <hr>
-    <%= image_tag event.image_url(:thumb) if event.image? %><br>
-    <h2>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h2>
-    <h2><%= @category.name %></h2>
-    <h3>Description: <%= event.description %></h3>
-    <h4><%= formatted_date(event.show_date) %> | <%= event.duration %></h4>
-    <hr>
+
+    <div class="element-item <%= event.location %>" data-category="<%= event.location %>">
+      <%= link_to event_path(event.id) do %>
+        <%= image_tag event.image_url(:thumb) if event.image? %>
+      <% end %>
+        <!-- <h2>Event Title: <%# link_to event.name, event_path(event.id) %> | Location: <%# event.location %></h2> -->
+    </div>
   <% end %>
 </div>
 

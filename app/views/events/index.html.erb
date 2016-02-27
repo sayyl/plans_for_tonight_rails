@@ -9,9 +9,8 @@
 <hr>
 <div> 
   <% @categories.each do |category| %>
-    <%= link_to  category_path(category.id) do %> 
+    <%= link_to category_path(category.id) do %> 
     <%= image_tag category.image_url(:thumb) if category.image? %>
     <% end %>
   <% end %>
 </div>
-

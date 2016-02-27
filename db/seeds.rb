@@ -19,30 +19,28 @@ Faker::Config.locale = :'en-CA'
 #   )
 # end
 
-# 150.times do |n|
-#   corporate_id = 1
-#   category_id = Faker::Number.between(2, 4)
-#   name = Faker::App.name
-#   location = Faker::Address.city
-#   description = Faker::Lorem.sentences.join(" ")
-#   show_date = Faker::Date.between(185.days.ago, Date.today)
-#   start_time = Faker::Time.between(185.days.ago, Time.now, :all)
-#   duration = Faker::Number.between(60, 240)
-#   # remote_image_url = Faker::Placeholdit.image
-#   ticket_available = Faker::Number.between(50, 200)
-#   Event.create!(
-#     corporate_id: corporate_id,
-#     category_id: category_id,
-#     name: name,
-#     location: location,
-#     description: description,
-#     show_date: show_date,
-#     start_time: start_time,
-#     duration: duration,
-#     # remote_image_url: remote_image_url,
-#     ticket_available: ticket_available
-#   )
-# end
+150.times do |n|
+  corporate_id = 1
+  category_id = Faker::Number.between(2, 4)
+  name = Faker::App.name
+  location = Faker::Address.city
+  description = Faker::Lorem.sentences.join(" ")
+  show_date = Faker::Time.between(DateTime.now - 185, DateTime.now)
+  duration = Faker::Number.between(60, 240)
+  # remote_image_url = Faker::Placeholdit.image
+  ticket_available = Faker::Number.between(50, 200)
+  Event.create!(
+    corporate_id: corporate_id,
+    category_id: category_id,
+    name: name,
+    location: location,
+    description: description,
+    show_date: show_date,
+    duration: duration,
+    # remote_image_url: remote_image_url,
+    ticket_available: ticket_available
+  )
+end
 
 # 500.times do |n|
 #   consumer_id = Consumer.all.sample.id
@@ -55,18 +53,20 @@ Faker::Config.locale = :'en-CA'
 #   )
 # end
 
-500.times do |n|
-  type_array = ["General", "Adult", "Child"]
-  event_id = Event.all.sample.id
-  transaction_id = Transaction.all.sample.id
-  price = Faker::Number.between(20, 150)
-  type = type_array.sample
-  confirmation_num = Faker::Number.number(8)
-  Ticket.create!(
-    event_id: event_id,
-    transaction_id: transaction_id,
-    price: price,
-    type: type,
-    confirmation_num: confirmation_num
-  )
-end
+
+###CHANGE COLUMN
+# 500.times do |n|
+#   type_array = ["General", "Adult", "Child"]
+#   event_id = Event.all.sample.id
+#   transaction_id = Transaction.all.sample.id
+#   price = Faker::Number.between(20, 150)
+#   type = type_array.sample
+#   confirmation_num = Faker::Number.number(8)
+#   Ticket.create!(
+#     event_id: event_id,
+#     transaction_id: transaction_id,
+#     price: price,
+#     type: type,
+#     confirmation_num: confirmation_num
+#   )
+# end
