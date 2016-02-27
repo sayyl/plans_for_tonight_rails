@@ -10,8 +10,14 @@
  *
  *= require_self
  *= require datetimepicker
- *= require_tree .
- */
+ *= require theme/bootstrap.min.css
+ *= require theme/core.css
+ *= require theme/icons.css
+ *= require theme/components.css
+ *= require theme/pages.css
+ *= require theme/menu.css
+ *= require theme/responsive.css
+
 #category_img {
   width: 200px;
   height: 200px;
