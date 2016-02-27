@@ -12,8 +12,10 @@
 <div class="grid"> 
  <% @category.events.each do |event| %>
     <div class="loc_<%= event.location %>">
-      <%= image_tag link_to event.image_url(:thumb), event_path(event.id) if event.image? %>
-      <h2>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h2>
+      <%= link_to event_path(event.id) do %>
+        <%= image_tag event.image_url(:thumb) if event.image? %>
+      <% end %>
+        <h2>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h2>
     </div>
   <% end %>
 </div>
