@@ -10,12 +10,11 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
     @categories = Category.all
+    @event = Event.new
   end
 
   def create 
-    @categories = Category.all
     @event = Event.new(event_params)
     @event.corporate_id = current_user.id
     if @event.save 
