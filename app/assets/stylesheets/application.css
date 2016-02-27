@@ -9,15 +9,15 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require theme/bootstrap.min.css
- *= require theme/core.css
- *= require theme/icons.css
- *= require theme/components.css
- *= require theme/pages.css
- *= require theme/menu.css
- *= require theme/responsive.css
+ *= require_tree .
  */
 #category_img {
   width: 200px;
   height: 200px;
+}
+
+#navbar {
+      width: 100%;
+      background-color: #5D2C6B;
+      height: 100px;
 }
