@@ -2,11 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-* {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
+
+
 
 .grid {
   border: 10px solid #333;
@@ -19,8 +16,6 @@
   clear: both;
 }
 
-/* ---- .element-item ---- */
-
 .element-item {
   position: relative;
   float: left;
@@ -28,9 +23,15 @@
   height: 100px;
   margin: 5px;
   padding: 10px;
+  border: 5px solid #333;
 }
 
 .element-item > * {
   margin: 0;
   padding: 0;
+}
+
+#event_id {
+  color: red;
+  border: 5px solid #333;
 }
