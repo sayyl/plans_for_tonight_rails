@@ -16,6 +16,6 @@
 //= require datetimepicker
 //= require_directory ./theme
 //= require_tree .
-
+//= require isotope.pkgd
 
   
