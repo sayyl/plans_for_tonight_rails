@@ -1,13 +1,32 @@
 <h1>Corporates#index</h1>
 <p>Find me in app/views/corporates/index.html.erb</p>
-<%= link_to "New Event", new_event_path %>
-<p> Current Events </p>
-<% current_user.events.each do |event| %>
-  <h2><%= event.name %> (<%= link_to "edit", edit_category_event_path(event.category_id,event) %>, <%= link_to "delete", category_event_path(event.category_id, event), method: :delete,confirm: "You sure?" %>) | <%= event.location %> </h2>
-  <%= image_tag event.image_url(:thumb) if event.image? %>
-  <p>Event Title: <%= link_to event.name, event_path(event.id) %></p>
-  <p>Description: <%= event.description %></p>
-  <p> Show Date: <%= event.show_date %> | Start Time <%= event.start_time %></p>
-  <p> Duration <%= event.duration %> </p>
-<% end %>
-<p> Past Events </p>
+
+<%= button_to "Add A New Event", new_event_path, method: :get%>
+<%# link_to "New Event", new_event_path %>
+
+
+<div>
+  <h3> Current Events </h3>
+
+  <% current_user.events.present.each do |event| %>
+    <p><%= event.name %> (<%= link_to "edit", edit_category_event_path(event.category_id,event) %>, <%= link_to "delete", category_event_path(event.category_id, event), method: :delete,confirm: "You sure?" %>) | <%= event.location %> </p>
+    <%= image_tag event.image_url(:thumb) if event.image? %>
+    <p>Event Title: <%= link_to event.name, event_path(event.id) %></p>
+    <p>Description: <%= event.description %></p>
+    <p><%= formatted_date(event.show_date) %> | <%= event.duration %> mins </p><br>
+  <% end %>
+</div>
+
+<hr>
+
+<div>
+  <h3> Past Events </h3>
+
+  <% current_user.events.past.each do |event| %>
+    <p><%= event.name %> (<%= link_to "edit", edit_category_event_path(event.category_id,event) %>, <%= link_to "delete", category_event_path(event.category_id, event), method: :delete,confirm: "You sure?" %>) | <%= event.location %> </p>
+    <%= image_tag event.image_url(:thumb) if event.image? %>
+    <p>Event Title: <%= link_to event.name, event_path(event.id) %></p>
+    <p>Description: <%= event.description %></p>
+    <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4><br>
+  <% end %>
+</div>

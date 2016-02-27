@@ -49,6 +49,10 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-datetimepicker'
+end
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -57,3 +61,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'bootstrap-sass'
+gem 'chartkick'
