@@ -1,3 +1,8 @@
+
+<script type="text/javascript">
+  $('.datetimepicker').datetimepicker();
+</script>
+
 <%= form_for @event, :html => {:multipart => true} do |f| %>
   <div>
     <%= f.label :name, "Title" %><br>
@@ -9,11 +14,7 @@
   </div>
   <div>
     <%= f.label :show_date, "Event Date" %>
-    <%= f.date_field :show_date, ignore_time: true  %>
-  </div>
-  <div>
-    <%= f.label :show_date, "Event Time" %>
-    <%= f.time_field :show_date, ignore_date: true %>
+    <%= f.text_field :show_date, class: "datetimepicker"  %>
   </div>
   <div>
     <%= f.label :duration, "Duration" %>
@@ -57,3 +58,4 @@
     </div>
   <% end %>
 <% end %>
+
