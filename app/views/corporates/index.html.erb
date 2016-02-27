@@ -2,10 +2,10 @@
 <p>Find me in app/views/corporates/index.html.erb</p>
 
 <%= button_to "Add A New Event", new_event_path, method: :get%>
-<%= link_to "New Event", new_event_path %>
+<%#ink_to "New Event", new_event_path%>
+<button id="past_events">View Past Events</button>
 
-
-<div>
+<div id="show_current">
   <h3> Current Events </h3>
 
   <% current_user.events.present.each do |event| %>
@@ -19,9 +19,8 @@
 
 <hr>
 
-<div>
+<div id="show_past">
   <h3> Past Events </h3>
-
   <% current_user.events.past.each do |event| %>
     <p><%= event.name %> (<%= link_to "edit", edit_category_event_path(event.category_id,event) %>, <%= link_to "delete", category_event_path(event.category_id, event), method: :delete,confirm: "You sure?" %>) | <%= event.location %> </p>
     <%= image_tag event.image_url(:thumb) if event.image? %>
@@ -30,3 +29,17 @@
     <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4><br>
   <% end %>
 </div>
+
+ 
+<script> 
+  $('#past_events').on('click', function() {
+    event.preventDefault();
+    $('#show_past').show();
+  });
+
+$(function() {
+  $('#show_past').hide();
+});
+</script>
+
+
