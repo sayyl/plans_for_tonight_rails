@@ -20,3 +20,4 @@ class Event < ActiveRecord::Base
     where("show_date >= '#{Time.now}'")
   end
 end
+
