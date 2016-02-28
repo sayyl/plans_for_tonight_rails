@@ -19,5 +19,22 @@ class Event < ActiveRecord::Base
   def self.present
     where("show_date >= '#{Time.now}'")
   end
+
+  def self.twodays
+    where(:show_date => Time.now..(Time.now + 48.hours))
+  end
+
+  def self.onedays
+    where(:show_date => Time.now..(Time.now + 24.hours))
+  end
+
+  def self.twelvehours
+    where(:show_date => Time.now..(Time.now + 12.hours))
+  end
+
+  def self.sixhours
+    where(:show_date => Time.now..(Time.now + 6.hours))
+  end
+
 end
 
