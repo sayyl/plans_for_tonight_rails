@@ -1,4 +1,4 @@
- $('#past_events').on('click', function() {
+$('#past_events').on('click', function() {
   $('#show_past').toggle();
 
     if ($.trim($(this).text()) === 'View Past Events') {
@@ -9,4 +9,5 @@
   
   return false; 
 });
+
 

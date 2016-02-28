@@ -36,5 +36,9 @@ class Event < ActiveRecord::Base
     where(:show_date => Time.now..(Time.now + 6.hours))
   end
 
+  def start_time
+        self.show_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+  end
+
 end
 

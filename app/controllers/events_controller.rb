@@ -16,8 +16,12 @@ class EventsController < ApplicationController
 
   def create 
     @event = Event.new(event_params)
+    count= params[:ticket_available].to_i
     @event.corporate_id = current_user.id
     if @event.save 
+      for i in 1..count 
+        @event.tickets.create 
+      end
       redirect_to corporates_path
     else
       render :new
