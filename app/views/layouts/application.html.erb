@@ -4,19 +4,22 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.js"></script>
   <title>PlansForTonightRails</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  
   <%= csrf_meta_tags %>
 </head>
-<body>
- <% flash.each do |key, value| %>
- <%= content_tag(:div, value) %>
-<% end %>
-<% if current_user %>
-  Signed in as  <%= current_user.name %><%= link_to "Log Out", session_path("current"), method: :delete %> 
-<% end %> 
+<body class="fixed-left">
+  
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value) %>
+  <% end %>
+  <% if current_user %>
+    Signed in as  <%= current_user.name %><%= link_to "Log Out", session_path("current"), method: :delete %> 
+  <% end %> 
  
   
-<%= yield %>
+  <%= yield %>
+
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
 </body>
 </html>

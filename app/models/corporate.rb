@@ -9,13 +9,15 @@ class Corporate < ActiveRecord::Base
   validates :postal_code, presence: true, format: { with: /\A[A-Z]{1}\d{1}[A-Z]{1}\s{1}\d{1}[A-Z]{1}\d{1}\z/, message: "please format your postal code V1V 1V1" }
   validates :country, presence: true
   validates :phone, presence: true
-  validates :website_url, presence: true
+  # validates :website_url
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
   validates :business_number, presence: true, numericality: { only_integer: true }
 
   has_secure_password 
 
- 
+  def my_event(event)
+    self.events.include?(event) 
+  end
 end
 

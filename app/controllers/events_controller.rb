@@ -16,12 +16,8 @@ class EventsController < ApplicationController
 
   def create 
     @event = Event.new(event_params)
-    count= params[:ticket_available].to_i
     @event.corporate_id = current_user.id
     if @event.save 
-      for i in 1..count 
-        @event.tickets.create 
-      end
       redirect_to corporates_path
     else
       render :new
@@ -34,14 +30,17 @@ class EventsController < ApplicationController
   end
 
   def destroy 
-    @event = Event.find(params[:id])
-    @event.destroy
-    redirect_to corporates_path
+    if current_user.my_event(@event) 
+      @event = Event.find(params[:id])
+      @event.destroy
+    end
+      redirect_to corporates_path
   end
 
   def update 
     @event = Event.find(params[:id])
-    if @event.update_attributes(event_params)
+    result = current_user.my_event(@event) ? @event.update_attributes(event_params) : false
+    if result
       redirect_to corporates_path
     else
       render :edit 

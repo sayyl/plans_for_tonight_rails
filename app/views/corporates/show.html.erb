@@ -1,2 +1,36 @@
 <h1>Corporates#show</h1>
 <p>Find me in app/views/corporates/show.html.erb</p>
+
+<div id="calender">
+<%= month_calendar events: current_user.events.future do |date, events| %>
+  <%= date %>
+  <% events.each do |event| %>
+    <div>
+      <%= link_to event.name, corporate_event_path(current_user.id, event.id), 'data-popup' => true %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+ 
+
+ <%= button_to "Add A New Event", new_event_path, method: :get%>
+<%#ink_to "New Event", new_event_path%>
+<button id="past_events">View Past Events</button>
+
+
+
+<div id="show_past">
+  <h3> Past Events </h3>
+  <% current_user.events.past.each do |event| %>
+    <p><%= event.name %></p>
+    <p><%= event.location %> </p>
+    <%= image_tag event.image_url(:thumb) if event.image? %>
+    <p>Event Title: <%= link_to event.name, event_path(event.id) %></p>
+    <p>Description: <%= event.description %></p>
+    <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4><br>
+  <% end %>
+</div>
+
+
+
+

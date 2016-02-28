@@ -9,10 +9,17 @@
     <option value=".<%= location %>"> <%= location %> </option>
   <% end %>
 </select>
+<select class="filters-select">
+  <option value="*">show all</option>
+  <option value=".twodays">48 hrs</option>
+  <option value=".oneday">24 hrs</option>
+  <option value=".twelvehours">12 hrs</option>
+  <option value=".sixhours">6 hrs</option>
+</select>
 
 <div class="grid"> 
- <% @category.events.twodays.each do |event| %>
-    <div class="element-item <%= event.location %>" data-category="<%= event.location %>">
+ <% @category.events.future.each do |event| %>
+    <div class="element-item <%= event.location %> <%= event.within_two_days ? 'twodays' : ''%>" data-category="<%= event.location %>">
       <%= link_to event_path(event.id) do %>
         <%= image_tag event.image_url(:thumb) if event.image? %>
       <% end %>
