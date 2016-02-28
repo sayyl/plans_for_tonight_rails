@@ -13,6 +13,7 @@ class TransactionsController < ApplicationController
 
   def create 
     @transaction = Transaction.new(transaction_params)
+    @transaction.consumer_id = current_user.id 
     if @transaction.save
       redirect_to transaction_path
     else

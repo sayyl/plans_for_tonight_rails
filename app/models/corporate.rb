@@ -15,5 +15,7 @@ class Corporate < ActiveRecord::Base
   validates :business_number, presence: true, numericality: { only_integer: true }
 
   has_secure_password 
+
+ 
 end
 
