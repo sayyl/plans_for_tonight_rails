@@ -53,6 +53,10 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
 end
+
+#Stripe payment
+gem 'stripe'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
