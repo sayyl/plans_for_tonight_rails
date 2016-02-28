@@ -36,12 +36,11 @@ class TransactionsController < ApplicationController
   protected
 
   def transaction_params 
-    params.require(:transaction).permit(:price, , :image, :remote_image_url)
+    params.require(:transaction).permit(:total, :successful)
   end
 end
 
  
-
 
 
 
