@@ -6,7 +6,6 @@ class CorporatesController < ApplicationController
 
   def show
     @corporate = Corporate.find(params[:id])
-    @event = @corporate.events.find(params[:id])
   end
 
   def new
@@ -17,7 +16,7 @@ class CorporatesController < ApplicationController
     @corporate = Corporate.new(corporate_params)
     if @corporate.save 
       session[:user_id] = @corporate.id 
-      redirect_to corporate_path(@corporate), notice: "Welcome abroad, #{@corporate.name}"
+      redirect_to corporates_path(@corporate), notice: "Welcome abroad, #{@corporate.name}"
     else
       render :new 
     end

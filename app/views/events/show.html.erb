@@ -4,12 +4,16 @@
 
 
 <hr>
+<% if current_user.my_event(@event) %>
+ <p><%= @event.name %> (<%= link_to "edit", edit_category_event_path(@event.category_id,@event) %>, <%= link_to "delete", category_event_path(@event.category_id, @event), method: :delete,confirm: "You sure?" %>) </p>
+ <% end %>
 <%= image_tag @event.image_url(:thumb) if @event.image? %><br>
 <%= @event.category_id %>
 <p>Tickets available <%= @event.ticket_available %></p>
 <h4><%= formatted_date(@event.show_date) %> | <%= @event.duration %> minutes</h4>
 <p><%= @event.description %></p>
 <hr>
+
 
 
 

@@ -16,24 +16,28 @@ class Event < ActiveRecord::Base
     where("show_date < '#{Time.now}'")
   end
 
-  def self.present
+  def self.future
     where("show_date >= '#{Time.now}'")
   end
 
   def self.twodays
-    where(:show_date => Time.now..(Time.now + 48.hours))
+    future.where("show_date <= '#{Time.now + 48.hours}' ")
   end
 
-  def self.onedays
-    where(:show_date => Time.now..(Time.now + 24.hours))
+  def self.oneday
+    future.where("show_date <= '#{Time.now + 24.hours}' ")
   end
 
   def self.twelvehours
-    where(:show_date => Time.now..(Time.now + 12.hours))
+    future.where("show_date <= '#{Time.now + 12.hours}' ")
   end
 
   def self.sixhours
-    where(:show_date => Time.now..(Time.now + 6.hours))
+    future.where("show_date <= '#{Time.now + 6.hours}' ")
+  end
+
+  def within_two_days
+    return (self.show_date > Time.now and self.show_date <= Time.now + 48.hours)
   end
 
   def start_time

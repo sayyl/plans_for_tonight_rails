@@ -6,4 +6,8 @@ class Consumer < ActiveRecord::Base
   validates :password, presence: true
 
   has_secure_password 
+
+  def my_event(event)
+    return false
+  end
 end

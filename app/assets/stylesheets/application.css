@@ -8,18 +8,14 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require social-share-button
- *= require_self
+ 
  *= require datetimepicker
- *= require theme/bootstrap.min.css
- *= require theme/core.css
- *= require theme/icons.css
- *= require theme/components.css
- *= require theme/pages.css
- *= require theme/menu.css
- *= require theme/responsive.css
-  *= require simple_calendar
-*/
+ *= require simple_calendar
+ *= require social-share-button
+ *= require_tree .
+ *= require_self
+ */
+ 
 #category_img {
   width: 200px;
   height: 200px;

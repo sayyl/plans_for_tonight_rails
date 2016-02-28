@@ -11,6 +11,12 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
+  def create 
+    @ticket = Ticket.new 
+    @ticket.event_id = params[:event_id]
+    if @ticket.save 
+    redirect_to  
+
 
   def edit 
     @ticket = Ticket.find(params[:id])
