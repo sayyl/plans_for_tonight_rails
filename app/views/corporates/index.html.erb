@@ -4,25 +4,6 @@
 <%= button_to "Add A New Event", new_event_path, method: :get%>
 <%#ink_to "New Event", new_event_path%>
 <button id="past_events">View Past Events</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="show_current">
   <h3> Current Events </h3>
 
@@ -51,13 +32,20 @@
  
 <script> 
   $('#past_events').on('click', function() {
-    event.preventDefault();
-    $('#show_past').show();
+    $('#show_past').toggle();
+
+      if ($.trim($(this).text()) === 'View Past Events') {
+        $(this).text('Hide Past Events');
+    } else {
+        $(this).text('View Past Events');        
+    }
+    
+    return false; 
   });
 
-$(function() {
-  $('#show_past').hide();
-});
+// $(function() {
+//   $('#show_past').hide();
+// });
 </script>
 
 
