@@ -64,3 +64,6 @@ end
 
 gem 'bootstrap-sass'
 gem 'chartkick'
+
+gem "simple_calendar", "~> 2.0"
+gem 'social-share-button', '~> 0.1.6'
