@@ -1,6 +1,15 @@
 PlansForTonightRails::Application.routes.draw do
 
 
+  get "transactions/index"
+  get "transactions/show"
+  get "transactions/new"
+  get "transactions/edit"
+  get "tickets/index"
+  get "tickets/show"
+  get "tickets/new"
+  get "tickets/edit"
+  get "homes/show"
   resources :events
   resources :categories, only: [:index, :new, :create, :edit, :show, :update]
   resources :corporates, only: [:index, :new, :create, :show]
@@ -11,6 +20,9 @@ PlansForTonightRails::Application.routes.draw do
   resources :category do 
     resources :events
   end
+
+  resources :homes, only: [:show]
+  
 
 
   # The priority is based upon order of creation: first created -> highesst priority.

@@ -14,8 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require datetimepicker
+//= require social-share-button
 //= require_directory ./theme
 //= require_tree .
 //= require isotope.pkgd
+
 
   
