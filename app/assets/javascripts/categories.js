@@ -19,7 +19,7 @@
     for ( var prop in filters ) {
       isoFilters.push( filters[ prop ] )
     }
-    console.log(filters);
+    // console.log(filters);
     var selector = isoFilters.join('');
     $grid.isotope({ filter: selector });
     return false;
