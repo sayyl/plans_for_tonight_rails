@@ -36,8 +36,16 @@ class Event < ActiveRecord::Base
     future.where("show_date <= '#{Time.now + 6.hours}' ")
   end
 
-  def within_two_days
-    return (self.show_date > Time.now and self.show_date <= Time.now + 48.hours)
+  def tags
+    if (self.show_date > Time.now and self.show_date <= Time.now + 6.hours)
+      return "sixhours"
+    elsif (self.show_date > Time.now and self.show_date <= Time.now + 12.hours)
+      return "twelvehours"
+    elsif (self.show_date > Time.now and self.show_date <= Time.now + 24.hours)
+      return "oneday"
+    elsif (self.show_date > Time.now and self.show_date <= Time.now + 48.hours)
+      return "twodays"
+    end
   end
 
   def start_time
