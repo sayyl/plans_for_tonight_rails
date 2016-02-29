@@ -9,6 +9,8 @@ class Event < ActiveRecord::Base
   # validates :start_time, presence: true
   validates :duration, numericality: { only_integer: true }
   validates :show_date, presence: true
+  validates :general_ticket, presence: true
+  validates :child_ticket, presence: true
 
   mount_uploader :image, ImageUploader
 

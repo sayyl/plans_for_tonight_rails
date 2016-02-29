@@ -21,6 +21,14 @@
     <%= f.label :ticket_available, "Number Of Tickets Available" %>
     <%= f.number_field :ticket_available %> 
   </div> 
+  <div> 
+    <%= f.label :general_ticket, "General Ticket Price" %>
+    <%= f.text_field :general_ticket, placeholder: "10.00$" %> 
+  </div> 
+   <div> 
+    <%= f.label :child_ticket, "Child Ticket Price" %>
+    <%= f.text_field :child_ticket, placeholder: "5.00$" %> 
+  </div> 
   <div>
     <%= f.label :image, "Image" %>
     <%= f.file_field :image %>

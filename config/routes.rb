@@ -7,7 +7,7 @@ PlansForTonightRails::Application.routes.draw do
   resources :categories, only: [:index, :new, :create, :edit, :show, :update]
   resources :corporates, only: [:index, :new, :create, :show]
   resources :consumers, only: [:index, :new, :create, :show, :edit]
-  resources :transactions, only: [:index, :new, :create , :show]
+  resources :transactions
   resources :sessions, only: [:new, :create, :destroy]
   root to: 'events#index'
 
@@ -19,10 +19,6 @@ PlansForTonightRails::Application.routes.draw do
     resources :events
   end
 
-
-  resources :events do 
-    resources :tickets 
-  end
 
   resources :consumers do 
     resources :transactions

@@ -1,6 +1,12 @@
+| <%= link_to " Back to event category", category_path(@event.category_id)%> |
+<%= link_to " Home", events_path %>
+
 <h1>Events#show</h1>
 <p>Find me in app/views/events/show.html.erb</p>
-<%= link_to "Back to event category", category_path(@event.category_id)%><br/>
+
+
+
+
 
 
 <hr>
@@ -10,7 +16,7 @@
 <%= image_tag @event.image_url(:thumb) if @event.image? %><br>
 <%= @event.category_id %>
 <p>Tickets available <%= @event.ticket_available %></p>
-<h4><%= formatted_date(@event.show_date) %> | <%= @event.duration %> minutes</h4>
+<div><span class="glyphicon glyphicon-time" aria-hidden="true"></span><%= formatted_date(@event.show_date) %> | <%= @event.duration %> minutes</div>
 <p><%= @event.description %></p>
 <hr>
 
@@ -20,7 +26,36 @@
 
 
 
-<%= social_share_button_tag("Click Here To Share ") %>
 
+<div id="transaction-window">
+
+<%= form_tag({controller: "transactions", action: "create"}, method: "post") do %> 
+  <article>
+  <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <%= label_tag(:general_count,"General Admission") %>
+    <%= select_tag('general_count', options_for_select((1..10).step(1))) %>
+    <%= label_tag(:child_count,"Child Admission") %>
+    <%= select_tag('child_count', options_for_select((1..10).step(1))) %>
+    <%= hidden_field_tag('event_id', @event.id) %>
+    <%= hidden_field_tag('current_user_id', current_user.id) %>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Transaction Payment"
+            data-locale="auto"></script>
+  </article>
+<% end %>
+</div>
+
+
+<br><br>
+
+
+<div>
+<%= social_share_button_tag("Click Here To Share ") %>
+<div>
 
 

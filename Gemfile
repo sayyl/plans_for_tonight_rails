@@ -62,8 +62,10 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
 gem 'bootstrap-sass'
 gem 'chartkick'
 
 gem "simple_calendar", "~> 2.0"
 gem 'social-share-button', '~> 0.1.6'
+gem 'stripe'
