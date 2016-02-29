@@ -14,23 +14,29 @@ class TransactionsController < ApplicationController
   def create 
     # params[:general_ticket] params[:child_ticket] params[:ticket_count] parms[:event_id] current_user
     # self.total_price = self.adjustments.map{|adj| adj.nil? ? 0.00 : adj.amount}.sum
-    @consumer = Consumer.find(params[:current_user_id])
-    customer = Stripe::Customer.create(
-      :email => @consumer.email,
+    @event = Event.find(params[:event_id])
+    @amount = Transaction.total_price(@event,params[:general_count],params[:child_count])
+    stripeCustomer = Stripe::Customer.create(
+      :email => current_user.email,
       :source => params[:stripeToken]
       )
-    transaction = Stripe::Transaction.create(
-      :consumer_id => @consumer.id,
-      :total => @total,
+    charge = Stripe::Charge.create(
+      :customer => stripeCustomer.id,
+      :amount => @amount,
+      :description => 'Rails Stripe customer',
+      :currency => 'cad',
+      :receipt_email => 'bahar_rachapalli@yahoo.com'
       )
-    if transaction.save 
-      redirect_to new_consumer_transaction_path(@consumer)
-    end
+
+    @transaction = Transaction.new_trasaction(@event, current_user.id, params[:general_count], params[:child_count], @amount, charge.id)
+    redirect_to @transaction
+    # redirect_to transaction_path()
+
   rescue Stripe::CardError => e 
     flash[:error] = e.message 
     redirect_to event_path(@event.id)
   end
-    
+
 
 
 

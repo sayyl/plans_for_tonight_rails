@@ -41,7 +41,6 @@
     <%= label_tag(:child_count,"Child Admission") %>
     <%= select_tag('child_count', options_for_select((1..10).step(1))) %>
     <%= hidden_field_tag('event_id', @event.id) %>
-    <%= hidden_field_tag('current_user_id', current_user.id) %>
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="Transaction Payment"
