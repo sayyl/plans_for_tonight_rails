@@ -57,6 +57,10 @@ end
 #Stripe payment
 gem 'stripe'
 
+#Bootstrap
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -66,7 +70,6 @@ gem 'stripe'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'bootstrap-sass'
 gem 'chartkick'
 
 gem "simple_calendar", "~> 2.0"
