@@ -1,28 +1,34 @@
 
 <%= link_to "Home", events_path %>
 <%= link_to "Edit Category", edit_category_path(@category) %>
+
 <h1>Categories#show</h1>
 <p>Find me in app/views/categories/show.html.erb</p>
 
 
 
-<select class="filters-select">
-  <option value="*">show all</option>
-  <%= @category.events.pluck(:location).uniq.each do |location| %>
-    <option value=".<%= location %>"> <%= location %> </option>
-  <% end %>
-</select>
-<select class="filters-select">
-  <option value="*">show all</option>
-  <option value=".twodays">48 hrs</option>
-  <option value=".oneday">24 hrs</option>
-  <option value=".twelvehours">12 hrs</option>
-  <option value=".sixhours">6 hrs</option>
-</select>
+<div class="filters">
+  <label>Location:  </label>
+  <select class="option-set clearfix" data-filter-group="location">
+    <option value="*" data-filter-value="" class="selected">show all</option>
+    <%= @category.events.pluck(:location).uniq.each do |location| %>
+      <option value="#filter-location-<%= location %>" data-filter-value=".<%= location %>"> <%= location %> </option>
+    <% end %>
+  </select>
+
+  <label>Happening In:  </label>
+  <select class="filter option-set clearfix" data-filter-group="time">
+    <option value="*" data-filter-value="" class="selected">show all</option>
+    <option value="#filter-time-twodays" data-filter-value=".twodays">48 hrs</option>
+    <option value="#filter-time-oneday" data-filter-value=".oneday">24 hrs</option>
+    <option value="#filter-time-twelvehours" data-filter-value=".twelvehours">12 hrs</option>
+    <option value="#filter-time-sixhours" data-filter-value=".sixhours">6 hrs</option>
+  </select>
+</div>
 
 <div class="grid"> 
  <% @category.events.future.each do |event| %>
-    <div class="element-item <%= event.location %> <%= event.within_two_days ? 'twodays' : ''%>" data-category="<%= event.location %>">
+    <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
       <%= link_to event_path(event.id) do %>
         <%= image_tag event.image_url(:thumb) if event.image? %>
       <% end %>

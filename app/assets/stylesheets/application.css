@@ -20,6 +20,10 @@
   width: 200px;
   height: 200px;
 }
+
+body {
+  background-image: url("backgroun.jpg");
+}
 /* ---- corporate/index ---- */
 #show_past {
   display: none;
@@ -42,8 +46,7 @@
   height: 150px;
   margin: 5px;
   padding: 10px;
-  color: #5E35B1;
-  border: solid 1px #da7c0c;
+  border-radius: 10px;
   background: #f78d1d;
   background: -webkit-gradient(linear, left top, left bottom, from(#E2D4FF), to(#765CAB));
   background: -moz-linear-gradient(top,  #E2D4FF,  #765CAB);
