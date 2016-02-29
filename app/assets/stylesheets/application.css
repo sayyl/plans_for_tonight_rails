@@ -21,8 +21,22 @@
   height: 200px;
 }
 
-body {
-  background-image: url("backgroun.jpg");
+.index_bg {
+  background: url("background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+/*  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; */
+}
+
+#nav_icon {
+  display: inline-block;
+  padding:; 2px;
 }
 /* ---- corporate/index ---- */
 #show_past {

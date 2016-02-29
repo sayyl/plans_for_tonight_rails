@@ -16,10 +16,6 @@ class Event < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
 
-  def show_date_present 
-    if self.show_date < Time.now + 6.hours 
-  end
-
 
   def self.past
     where("show_date < '#{Time.now}'")

@@ -19,10 +19,10 @@
   <label>Happening In:  </label>
   <select class="filter option-set clearfix" data-filter-group="time">
     <option value="*" data-filter-value="" class="selected">show all</option>
-    <option value="#filter-time-twodays" data-filter-value=".twodays">48 hrs</option>
-    <option value="#filter-time-oneday" data-filter-value=".oneday">24 hrs</option>
-    <option value="#filter-time-twelvehours" data-filter-value=".twelvehours">12 hrs</option>
-    <option value="#filter-time-sixhours" data-filter-value=".sixhours">6 hrs</option>
+    <option value="#filter-time-twodays" data-filter-value=".twodays">under 48 hrs</option>
+    <option value="#filter-time-oneday" data-filter-value=".oneday">under 24 hrs</option>
+    <option value="#filter-time-twelvehours" data-filter-value=".twelvehours">under 12 hrs</option>
+    <option value="#filter-time-sixhours" data-filter-value=".sixhours">under 6 hrs</option>
   </select>
 </div>
 
@@ -33,6 +33,7 @@
         <%= image_tag event.image_url(:thumb) if event.image? %>
       <% end %>
         <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
+        <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
     </div>
   <% end %>
 </div>

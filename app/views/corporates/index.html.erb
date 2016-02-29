@@ -20,7 +20,7 @@
 <div id="show_current">
   <h3> Current Events </h3>
 
-  <% current_user.events.future.each do |event| %>
+  <% current_user.events.twodays.each do |event| %>
     <p><%= event.name %> (<%= link_to "edit", edit_category_event_path(event.category_id,event) %>, <%= link_to "delete", category_event_path(event.category_id, event), method: :delete,confirm: "You sure?" %>) | <%= event.location %> </p>
     <%= image_tag event.image_url(:thumb) if event.image? %>
     <p>Event Title: <%= link_to event.name, event_path(event.id) %></p>
