@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   end
 
   def create 
+    @categories = Category.all
     @event = Event.new(event_params)
     @event.corporate_id = current_user.id
     if @event.save 
@@ -38,10 +39,11 @@ class EventsController < ApplicationController
   end
 
   def update 
+    @categories = Category.all
     @event = Event.find(params[:id])
     result = current_user.my_event(@event) ? @event.update_attributes(event_params) : false
     if result
-      redirect_to corporates_path
+      redirect_to corporate_event_path(current_user.id, @event.id)
     else
       render :edit 
     end
