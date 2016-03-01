@@ -71,6 +71,8 @@ gem 'autoprefixer-rails'
 # gem 'debugger', group: [:development, :test]
 
 gem 'chartkick'
+gem 'groupdate', '~> 2.1.1'
+gem 'active_median', '~> 0.1.0'
 
 gem "simple_calendar", "~> 2.0"
 gem 'social-share-button', '~> 0.1.6'

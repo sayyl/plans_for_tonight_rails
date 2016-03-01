@@ -1,6 +1,11 @@
 <h1>Corporates#show</h1>
 <p>Find me in app/views/corporates/show.html.erb</p>
 
+
+<%= column_chart @result_hash, xtitle: "event", ytitle: "total transactions" %>
+
+<%= area_chart @result_hash %>
+
 <div id="calender">
 <%= month_calendar events: current_user.events.future do |date, events| %>
   <%= date %>
@@ -30,6 +35,8 @@
     <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4><br>
   <% end %>
 </div>
+
+<%= @result_hash.to_a %>
 
 
 

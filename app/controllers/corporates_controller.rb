@@ -8,6 +8,7 @@ class CorporatesController < ApplicationController
 
   def show
     @corporate = Corporate.find(params[:id])
+    @result_hash = @corporate.calculate_event_total_transactions
   end
 
   def new
