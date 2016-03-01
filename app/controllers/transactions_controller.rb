@@ -15,22 +15,26 @@ class TransactionsController < ApplicationController
     # params[:general_ticket] params[:child_ticket] params[:ticket_count] parms[:event_id] current_user
     # self.total_price = self.adjustments.map{|adj| adj.nil? ? 0.00 : adj.amount}.sum
     @event = Event.find(params[:event_id])
-    @amount = Transaction.total_price(@event,params[:general_count],params[:child_count])
-    stripeCustomer = Stripe::Customer.create(
-      :email => current_user.email,
-      :source => params[:stripeToken]
-      )
-    charge = Stripe::Charge.create(
-      :customer => stripeCustomer.id,
-      :amount => @amount,
-      :description => 'Rails Stripe customer',
-      :currency => 'cad',
-      :receipt_email => 'bahar_rachapalli@yahoo.com'
-      )
+    if params[:general_count].to_i + params[:child_count].to_i > @event.ticket_available 
+      flash[:error] = "Please Select Number of tickets less than or equal to #{@event.ticket_available} "
+      redirect_to event_path(@event.id)
+    else
+      @amount = Transaction.total_price(@event,params[:general_count],params[:child_count])
+      stripeCustomer = Stripe::Customer.create(
+        :email => 'bahar_rachapalli@yahoo.com',
+        :source => params[:stripeToken]
+        )
+      charge = Stripe::Charge.create(
+        :customer => stripeCustomer.id,
+        :amount => @amount,
+        :description => 'Rails Stripe customer',
+        :currency => 'cad',
+        :receipt_email => stripeCustomer.email
+        )
 
-    @transaction = Transaction.new_trasaction(@event, current_user.id, params[:general_count], params[:child_count], @amount, charge.id)
-    redirect_to @transaction
-    # redirect_to transaction_path()
+      @transaction = Transaction.new_trasaction(@event, current_user.id, params[:general_count], params[:child_count], @amount, charge.id)
+      redirect_to @transaction
+    end
 
   rescue Stripe::CardError => e 
     flash[:error] = e.message 

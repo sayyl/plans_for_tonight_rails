@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   validates :location, presence: true
   validates :show_date, presence: true 
   validates :description, presence: true
-  validates :ticket_available, numericality: {only_integer: true, greater_than_or_equal_to: 1 }
+  validates :ticket_available, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   # validates :start_time, presence: true
   validates :duration, numericality: { only_integer: true }
   validates :show_date, presence: true 

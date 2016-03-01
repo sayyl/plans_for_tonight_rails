@@ -14,7 +14,7 @@ class Transaction < ActiveRecord::Base
   def self.new_trasaction(event,user_id, general_count,child_count, amount, charge_id)
     event.ticket_available -= general_count.to_i
     event.ticket_available -= child_count.to_i
-    event.save
+    event.save!
     transaction = self.create(consumer_id: user_id, total: amount, successful: true)
     for i in 1..general_count.to_i 
       Ticket.create(event_id: event.id, transaction_id: transaction.id, price: event.general_ticket, ticket_type: "general", confirmation_num: charge_id)
