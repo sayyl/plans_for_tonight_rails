@@ -1,7 +1,7 @@
 class Transaction < ActiveRecord::Base
   belongs_to :consumer
+  belongs_to :event
   has_many :tickets
-  attr_accessor :event_id , :general_count, :child_count 
   validates :total, presence: true, numericality: true
   # validates :successful, allow_blank: true
 
@@ -16,7 +16,8 @@ class Transaction < ActiveRecord::Base
     event.ticket_available -= general_count.to_i
     event.ticket_available -= child_count.to_i
     event.save!
-    transaction = self.create(consumer_id: user_id, total: amount, successful: true)
+    transaction = self.create(consumer_id: user_id, event_id: event.id, total: amount, successful: true)
+    transaction.save!
     for i in 1..general_count.to_i 
       Ticket.create(event_id: event.id, transaction_id: transaction.id, price: event.general_ticket, ticket_type: "general", confirmation_num: charge_id)
     end

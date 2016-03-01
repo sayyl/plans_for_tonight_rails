@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  before_filter -> {restrict_purchase params[:event_id]}
   def index
     @transactions = Transaction.all 
   end

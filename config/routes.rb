@@ -5,9 +5,9 @@ PlansForTonightRails::Application.routes.draw do
   resources :tickets, only: [:index, :new, :create, :edit, :show, :update]
   resources :events
   resources :categories, only: [:index, :new, :create, :edit, :show, :update]
-  resources :corporates, only: [:index, :new, :create, :show]
-  resources :consumers, only: [:index, :new, :create, :show, :edit]
-  resources :transactions
+  resources :corporates, only: [:index, :new, :create, :show, :edit, :update]
+  resources :consumers, only: [:index, :new, :create, :show, :edit, :update]
+  resources :transactions, only: [:new, :create, :show, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
   root to: 'events#index'
 
