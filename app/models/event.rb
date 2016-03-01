@@ -9,13 +9,15 @@ class Event < ActiveRecord::Base
   validates :ticket_available, numericality: {only_integer: true, greater_than_or_equal_to: 1 }
   # validates :start_time, presence: true
   validates :duration, numericality: { only_integer: true }
-  validates :show_date, presence: true
+  validates :show_date, presence: true 
   validates :general_ticket, presence: true
-  validates :child_ticket, presence: true
-  validates :show_date_present
+  validate  :show_date_present
   mount_uploader :image, ImageUploader
 
 
+  def show_date_present
+    errors.add(:show_date, "Events can only be added if their show is atleast 6 hours ahead") if self.show_date < Time.now + 6.hours 
+  end
 
   def self.past
     where("show_date < '#{Time.now}'")
