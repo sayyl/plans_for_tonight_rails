@@ -1,5 +1,6 @@
 class Transaction < ActiveRecord::Base
   belongs_to :consumer
+  has_many :tickets
   attr_accessor :event_id , :general_count, :child_count 
   validates :total, presence: true, numericality: true
   # validates :successful, allow_blank: true

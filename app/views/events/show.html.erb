@@ -20,12 +20,6 @@
 <p><%= @event.description %></p>
 <hr>
 
-
-
-
-
-
-
 <% if !current_user.my_event(@event) %>
   <% if @event.ticket_available > 1 %>
     <div id="transaction-window">
