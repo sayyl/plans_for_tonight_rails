@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  before_filter -> {restrict_purchase params[:event_id]}
   def index
     @transactions = Transaction.all 
   end
@@ -15,10 +16,7 @@ class TransactionsController < ApplicationController
     # params[:general_ticket] params[:child_ticket] params[:ticket_count] parms[:event_id] current_user
     # self.total_price = self.adjustments.map{|adj| adj.nil? ? 0.00 : adj.amount}.sum
     @event = Event.find(params[:event_id])
-    if !current_user
-      flash[:error] = "Please Log in or Sign Up for a free Account to purchase a Ticket"
-      redirect_to event_path(@event.id)
-    elsif params[:general_count].to_i + params[:child_count].to_i > @event.ticket_available 
+    if params[:general_count].to_i + params[:child_count].to_i > @event.ticket_available 
       flash[:error] = "Please Select Number of tickets less than or equal to #{@event.ticket_available} "
       redirect_to event_path(@event.id)
     else

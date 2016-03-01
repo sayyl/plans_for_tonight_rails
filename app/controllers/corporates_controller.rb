@@ -1,4 +1,6 @@
 class CorporatesController < ApplicationController
+  before_filter :restrict_to_corporate, :except => [:create, :new]
+
 
   def index
     @corporates = Corporate.all 
@@ -16,7 +18,7 @@ class CorporatesController < ApplicationController
     @corporate = Corporate.new(corporate_params)
     if @corporate.save 
       session[:user_id] = @corporate.id 
-      redirect_to corporates_path(@corporate), notice: "Welcome abroad, #{@corporate.name}"
+      redirect_to corporate_path(@corporate), notice: "Welcome abroad, #{@corporate.name}"
     else
       render :new 
     end
