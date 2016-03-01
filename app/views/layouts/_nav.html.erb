@@ -8,35 +8,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <ul class="nav navbar-nav navbar-left">
-        <img src="/assets/logo.png" id="nav_icon" />
-        <li class="nav-link"><%= link_to "Plans for Tonight", events_path %></li>
-      </ul>
+ <!--        <ul><img src="/assets/logo.png" id="nav_icon", class="nav-link" /></ul> -->
+        <ul class="navbar-brand"><%= link_to "Plans for Tonight", events_path %></ul>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <li><%= link_to "Partner with Us", new_corporate_path %></li>
         <li><a href="#">Last Minute Deals</a></li>
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-          <li class="nav-link"> Signed in as  <%= current_user.name %><%= link_to "Log Out", session_path("current"), method: :delete %> 
-          </li>
-          <% end %> 
-        <% if !current_user %> 
-          <li class="nav-link"><%= link_to "log in", new_session_path %></li> 
-          <li cclass="nav-link"><%= link_to "Sign Up", new_corporate_path %></li>
-          <li class="nav-link"><%= link_to "Consumer Sign Up", new_consumer_path %></li>
-        <% end %>
-        <li class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li class="navbar-brand">Signed in as  <%= current_user.name %></li>
+            <li><%= link_to "Log Out", session_path("current"), method: :delete %> </li>
+            <% end %>
+          <% if !current_user %> 
+            <li><%= link_to "Sign Up", new_consumer_path %></li>
+            <li><%= link_to "Log In", new_session_path %></li> 
+          <% end %>
+        </ul>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -1,16 +1,10 @@
 <body class="index_bg">
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
-
-<% if !current_user %> 
-<p><%= link_to "log in", new_session_path %></p> 
-<%= link_to "Sign Up", new_corporate_path %>
-<%= link_to "Consumer Sign Up", new_consumer_path %>
-<% end %>
-<div> 
+<div class="vertical_center"> 
   <% @categories.each do |category| %>
     <%= link_to category_path(category.id) do %> 
-    <%= image_tag category.image_url(:thumb) if category.image? %>
+      <div class="index_category_box">
+        <h2><%= category.name %></h2>
+      </div>
     <% end %>
   <% end %>
 </div>

@@ -21,8 +21,20 @@
   height: 200px;
 }
 
+.header {
+  margin-top: -60px;
+  margin-left: -60px;
+  margin-right: -60px;
+  margin-bottom: -60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: #FFFFFF;
+}
+
 .index_bg {
-  background: url("background.jpg");
+  background: url("background.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -35,9 +47,73 @@
 }
 
 #nav_icon {
-  display: inline-block;
-  padding:; 2px;
+  display: inline;
+  padding: 5px;
 }
+
+.vertical_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 400px;
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .vertical_center {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+.index_category_box {
+  height: 200px;
+  width: 200px; 
+  border-radius: 10px;
+  border: 5px #f600ff solid;
+  margin: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /*background-color: #9600ff;*/
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.index_category_box h2 {
+  color: #f600ff;
+}
+
+.index_category_box h2:hover {
+  font-style: italic;
+  /*text-decoration: none;*/
+}
+
+.content {
+  padding: 20px 50px 20px 50px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.corp_new {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 50px;
+}
+
+
+
+
+
 /* ---- corporate/index ---- */
 #show_past {
   display: none;
