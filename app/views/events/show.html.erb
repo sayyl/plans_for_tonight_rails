@@ -26,9 +26,8 @@
 
 
 
-
+<% if !current_user.my_event(@event) %>
 <div id="transaction-window">
-
 <%= form_tag({controller: "transactions", action: "create"}, method: "post") do %> 
   <article>
   <% if flash[:error].present? %>
@@ -37,9 +36,9 @@
       </div>
     <% end %>
     <%= label_tag(:general_count,"General Admission") %>
-    <%= select_tag('general_count', options_for_select((1..10).step(1))) %>
+    <%= select_tag('general_count', options_for_select((0..10).step(1))) %>
     <%= label_tag(:child_count,"Child Admission") %>
-    <%= select_tag('child_count', options_for_select((1..10).step(1))) %>
+    <%= select_tag('child_count', options_for_select((0..10).step(1))) %>
     <%= hidden_field_tag('event_id', @event.id) %>
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -48,7 +47,7 @@
   </article>
 <% end %>
 </div>
-
+<% end %>
 
 <br><br>
 
