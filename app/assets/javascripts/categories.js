@@ -1,4 +1,5 @@
-  var $grid = $('.grid').isotope({
+  var $el = $('#categories-page')
+  var $grid = $el.find('.grid').isotope({
     itemSelector: '.element-item',
     layoutMode: 'fitRows'
   });
@@ -25,7 +26,7 @@
     return false;
   });
 
-  $('ul>li').click(function() {
+  $el.find('ul>li').click(function() {
       var $this = $(this);
       var group = $this.parent().data('filter-group');
       filters[ group ] = $this.data('filter-value'); 
