@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.corporate_id = current_user.id
     if @event.save 
-      redirect_to corporates_path
+      redirect_to corporate_path(current_user.id)
     else
       render :new
     end
