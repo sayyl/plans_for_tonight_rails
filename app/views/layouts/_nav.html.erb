@@ -15,7 +15,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+      <% if !current_user %>
         <li><%= link_to "Partner with Us", new_corporate_path %></li>
+      <% else %>
+        <li><%= link_to "Visit Your Dashboard", corporate_path(current_user) %>
+      <% end %>
         <li><a href="#">Last Minute Deals</a></li>
       </ul>
         <ul class="nav navbar-nav navbar-right">

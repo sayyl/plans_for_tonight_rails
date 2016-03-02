@@ -22,6 +22,7 @@
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 
+
 $('.datetimepicker').datetimepicker();
 
 

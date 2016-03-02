@@ -31,6 +31,8 @@ class ApplicationController < ActionController::Base
       return @current_user
     end
 
+
+
     @categories = Category.all 
     
 

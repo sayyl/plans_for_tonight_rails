@@ -208,6 +208,7 @@ h1 {
 .simple-calendar {
   width: 800px;
   margin: auto;
+  margin-top: 20px;
   .day {}
 
   .wday-0 {}
