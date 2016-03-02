@@ -34,8 +34,8 @@ function errorFunction(){
          var address = results[0].formatted_address.split(',')
          // var city = address[1]
          // spoofing location to test filter
-         var c = "Vancouver"
-         console.log(c)
+         var city = "Vancouver"
+         console.log(city)
 
         } else {
           console.log("No results found");
@@ -79,7 +79,7 @@ function errorFunction(){
 
     <div class="grid"> 
      <% @category.events.twodays.each do |event| %>
-        <% if event.location == "Vancouver" %>
+        <!-- <% if event.location == "Vancouver" %> -->
           <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
             <%= link_to event_path(event.id) do %>
               <%= image_tag event.image_url(:thumb) if event.image? %>
