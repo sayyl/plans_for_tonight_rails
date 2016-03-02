@@ -1,54 +1,51 @@
-| <%= link_to " Back to event category", category_path(@event.category_id)%> |
-<%= link_to " Home", events_path %>
+<div class="content">
+  <div class="img_base">
+    <div class="header event_overlay"  style="background-image: url(<%=@event.image %>)">
+    </div>
+  <div class="event_header_text">
+    <h1><%= @event.name %></h1>
+    <h4>Presented By: <%= @event.corporate.name %></h4>
+  </div>
+  </div>
 
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
-
-
-
-
-
-
-<hr>
-<% if current_user %>
-<% if current_user.my_event(@event) %>
- <p><%= @event.name %> (<%= link_to "edit", edit_category_event_path(@event.category_id,@event) %>, <%= link_to "delete", category_event_path(@event.category_id, @event), method: :delete,confirm: "You sure?" %>) </p>
- <% end %>
- <% end %>
-<%= image_tag @event.image_url(:thumb) if @event.image? %><br>
-<%= @event.category_id %>
-<p>Tickets available <%= @event.ticket_available %></p>
-<div><span class="glyphicon glyphicon-time" aria-hidden="true"></span><%= formatted_date(@event.show_date) %> | <%= @event.duration %> minutes</div>
-<p><%= @event.description %></p>
-<hr>
+  <% if current_user %>
+  <% if current_user.my_event(@event) %>
+   <p><%= link_to " Back to event category", category_path(@event.category_id)%> </p>
+   <h2><%= @event.name %></h2> 
+   <h3>(<%= link_to "edit", edit_category_event_path(@event.category_id,@event) %>, <%= link_to "delete", category_event_path(@event.category_id, @event), method: :delete,confirm: "You sure?" %>) </h3><br>
+   <% end %>
+   <% end %>
+  <h4>Tickets remaining: <%= @event.ticket_available %></h4>
+  <div><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= formatted_date(@event.show_date) %> | <%= @event.duration %> minutes</div>
+  <h4><%= @event.description %></h4>
+  <hr>
 
 
-  <% if current_user && !current_user.my_event(@event) || !current_user %>
-    <% if @event.ticket_available > 1 %>
-      <div id="transaction-window">
-      <%= form_tag({controller: "transactions", action: "create"}, method: "post") do %> 
-        <article>
-          <%= label_tag(:general_count,"General Admission") %>
-          <%= select_tag('general_count', options_for_select((0..10).step(1))) %>
-          <%= label_tag(:child_count,"Child Admission") %>
-          <%= select_tag('child_count', options_for_select((0..10).step(1))) %>
-          <%= hidden_field_tag('event_id', @event.id) %>
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                  data-description="Transaction Payment"
-                  data-locale="auto"></script>
-        </article>
-      <% end %>
-        </div>
-    <% else %> 
-    <p>Event Sold Out</p>
-    <p><%= link_to "<button>Click Here</button>".html_safe, category_event_path(@event.category_id, @event.id) %>to recieve an Email if tickets become available</p>
+    <% if current_user && !current_user.my_event(@event) || !current_user %>
+      <% if @event.ticket_available > 1 %>
+        <div id="transaction-window">
+        <%= form_tag({controller: "transactions", action: "create"}, method: "post") do %> 
+          <article>
+            <%= label_tag(:general_count,"General Admission") %>
+            <%= select_tag('general_count', options_for_select((0..10).step(1))) %>
+            <%= label_tag(:child_count,"Child Admission") %>
+            <%= select_tag('child_count', options_for_select((0..10).step(1))) %>
+            <%= hidden_field_tag('event_id', @event.id) %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description="Transaction Payment"
+                    data-locale="auto"></script>
+          </article>
+        <% end %>
+          </div>
+      <% else %> 
+      <p>Event Sold Out</p>
+      <p><%= link_to "<button>Click Here</button>".html_safe, category_event_path(@event.category_id, @event.id) %>to recieve an Email if tickets become available</p>
+    <% end %>
   <% end %>
-<% end %>
 
-<br><br>
-
+  <br><br>
 
 <div>
 <%= social_share_button_tag("Click Here To Share ") %>
-<div>
+</div>

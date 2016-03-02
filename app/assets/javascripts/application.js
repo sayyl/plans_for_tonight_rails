@@ -15,11 +15,12 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jsapi
-//= require chartkick
 //= require datetimepicker
 //= require social-share-button
 //= require isotope.pkgd
 //= require_tree .
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
 
 $('.datetimepicker').datetimepicker();
 

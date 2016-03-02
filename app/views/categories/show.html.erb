@@ -64,46 +64,47 @@ function errorFunction(){
   }
 </script> 
 </head> 
-<body onload="initialize()"> 
+<body onload="initialize()">
+<div class="content">
+  <div id="categories-page">
+    <%= link_to "Home", events_path %>
+    <%= link_to "Edit Category", edit_category_path(@category) %>
 
-<div id="categories-page">
-  <%= link_to "Home", events_path %>
-  <%= link_to "Edit Category", edit_category_path(@category) %>
-
-  <h1>Categories#show</h1>
-  <p>Find me in app/views/categories/show.html.erb</p>
+    <h1>Categories#show</h1>
+    <p>Find me in app/views/categories/show.html.erb</p>
 
 
 
-  <div class="filters">
-    <label>Location:  </label>
-    <select class="option-set clearfix" data-filter-group="location">
-      <option value="*" data-filter-value="" class="selected">show all</option>
-      <%= @category.events.pluck(:location).uniq.each do |location| %>
-        <option value="#filter-location-<%= location %>" data-filter-value=".<%= location %>"> <%= location %> </option>
-      <% end %>
-    </select>
-
-    <label>Happening In:  </label>
-    <select class="filter option-set clearfix" data-filter-group="time">
-      <option value="*" data-filter-value="" class="selected">show all</option>
-      <option value="#filter-time-twodays" data-filter-value=".twodays">under 48 hrs</option>
-      <option value="#filter-time-oneday" data-filter-value=".oneday">under 24 hrs</option>
-      <option value="#filter-time-twelvehours" data-filter-value=".twelvehours">under 12 hrs</option>
-      <option value="#filter-time-sixhours" data-filter-value=".sixhours">under 6 hrs</option>
-    </select>
-  </div>
-
-  <div class="grid"> 
-   <% @category.events.twodays.each do |event| %>
-      <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
-        <%= link_to event_path(event.id) do %>
-          <%= image_tag event.image_url(:thumb) if event.image? %>
+    <div class="filters">
+      <label>Location:  </label>
+      <select class="option-set clearfix" data-filter-group="location">
+        <option value="*" data-filter-value="" class="selected">show all</option>
+        <%= @category.events.pluck(:location).uniq.each do |location| %>
+          <option value="#filter-location-<%= location %>" data-filter-value=".<%= location %>"> <%= location %> </option>
         <% end %>
-          <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
-          <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
-      </div>
-    <% end %>
+      </select>
+
+      <label>Happening In:  </label>
+      <select class="filter option-set clearfix" data-filter-group="time">
+        <option value="*" data-filter-value="" class="selected">show all</option>
+        <option value="#filter-time-twodays" data-filter-value=".twodays">under 48 hrs</option>
+        <option value="#filter-time-oneday" data-filter-value=".oneday">under 24 hrs</option>
+        <option value="#filter-time-twelvehours" data-filter-value=".twelvehours">under 12 hrs</option>
+        <option value="#filter-time-sixhours" data-filter-value=".sixhours">under 6 hrs</option>
+      </select>
+    </div>
+
+    <div class="grid"> 
+     <% @category.events.twodays.each do |event| %>
+        <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
+          <%= link_to event_path(event.id) do %>
+            <%= image_tag event.image_url(:thumb) if event.image? %>
+          <% end %>
+            <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
+            <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 </body>
