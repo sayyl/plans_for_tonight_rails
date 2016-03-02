@@ -13,7 +13,6 @@ class Event < ActiveRecord::Base
   validates :show_date, presence: true 
   validates :general_ticket, presence: true
   validate  :show_date_present
-  validates :child_ticket, presence: true
   validate :show_date_present
 
   mount_uploader :image, ImageUploader
@@ -61,6 +60,30 @@ class Event < ActiveRecord::Base
 
   def start_time
         self.show_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+  end
+
+  def event_transactions_time
+    transaction_per_hour = Array.new(48,0)
+    sorted_transactions = self.transactions.where("created_at < '#{self.show_date}' AND created_at > '#{self.show_date - 48.hours}' ").order(created_at: :desc).to_a
+    for transaction in sorted_transactions
+      hour_difference = TimeDifference.between(self.show_date, transaction.created_at).in_hours
+      transaction_per_hour[hour_difference] += 1
+    end
+    return transaction_per_hour
+  end
+
+  def recent_transactions_chart
+    return LazyHighCharts::HighChart.new('graph') do |f|
+      f.options[:legend][:layout] = "horizontal"
+      f.title(text: "Number of transactions every hour before show")
+      f.yAxis [
+        {title: {text: "Total Transactions", margin: 70} }
+      ]
+      f.series(type: "bubble", name: "Number of Transactions", yAxis: 0, data: self.event_transactions_time)
+
+      f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
+      f.chart({defaultSeriesType: "column"})
+    end
   end
 
 end
