@@ -1,3 +1,11 @@
 <h1>Transactions#show</h1>
 <p>Find me in app/views/transactions/show.html.erb</p>
-<%= @transaction.total.to_f %>
+
+<p> You have been Charged <%= '%.2f' % (@transaction.total/100.0).to_i %> CAD $ </p>
+<p><%= @transaction.event.name %></p>
+<%= formatted_date(@transaction.event.show_date) %> | <%= @transaction.event.duration %> minutes
+
+<p> Ticket Details </p>
+<% @transaction.tickets.each  do |ticket, i| %>
+<%= ticket.ticket_type %> <%= '%.2f' % (ticket.price/100).to_i %><br>
+<% end %>

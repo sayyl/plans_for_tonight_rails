@@ -19,5 +19,25 @@ class Corporate < ActiveRecord::Base
   def my_event(event)
     self.events.include?(event) 
   end
+
+  def calculate_event_total_transactions
+    sum = 0
+    transaction_hash = {}
+    self.events.each do |event| 
+      event.transactions.each do |transaction|
+        sum += transaction.total.to_i
+      end
+      transaction_hash[event.name] = sum
+    end
+    return transaction_hash
+  end
+
+  
+
 end
+
+
+
+
+
 

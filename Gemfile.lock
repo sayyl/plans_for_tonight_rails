@@ -11,6 +11,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_median (0.1.2)
+      activerecord
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -39,7 +41,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    chartkick (1.4.1)
+    chartkick (1.4.2)
     coderay (1.1.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -59,6 +61,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.6.3)
       i18n (~> 0.5)
+    groupdate (2.1.1)
+      activerecord (>= 3.0.0)
     hike (1.2.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -159,6 +163,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_median (~> 0.1.0)
   autoprefixer-rails
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass
@@ -167,6 +172,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   factory_girl_rails (~> 4.0)
   faker
+  groupdate (~> 2.1.1)
   jbuilder (~> 1.2)
   jquery-rails
   pg

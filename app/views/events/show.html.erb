@@ -10,50 +10,45 @@
 
 
 <hr>
-  <% if current_user.my_event(@event) %>
-   <p><%= @event.name %> (<%= link_to "edit", edit_category_event_path(@event.category_id,@event) %>, <%= link_to "delete", category_event_path(@event.category_id, @event), method: :delete,confirm: "You sure?" %>) </p>
-   <% end %>
-  <%= image_tag @event.image_url(:thumb) if @event.image? %><br>
-  <%= @event.category_id %>
-  <p>Tickets available <%= @event.ticket_available %></p>
-  <div><span class="glyphicon glyphicon-time" aria-hidden="true"></span><%= formatted_date(@event.show_date) %> | <%= @event.duration %> minutes</div>
-  <p><%= @event.description %></p>
-  <hr>
+<% if current_user %>
+<% if current_user.my_event(@event) %>
+ <p><%= @event.name %> (<%= link_to "edit", edit_category_event_path(@event.category_id,@event) %>, <%= link_to "delete", category_event_path(@event.category_id, @event), method: :delete,confirm: "You sure?" %>) </p>
+ <% end %>
+ <% end %>
+<%= image_tag @event.image_url(:thumb) if @event.image? %><br>
+<%= @event.category_id %>
+<p>Tickets available <%= @event.ticket_available %></p>
+<div><span class="glyphicon glyphicon-time" aria-hidden="true"></span><%= formatted_date(@event.show_date) %> | <%= @event.duration %> minutes</div>
+<p><%= @event.description %></p>
+<hr>
 
 
-
-
-
-
-
-
-<div id="transaction-window">
-
-<%= form_tag({controller: "transactions", action: "create"}, method: "post") do %> 
-  <article>
-  <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <%= label_tag(:general_count,"General Admission") %>
-    <%= select_tag('general_count', options_for_select((1..10).step(1))) %>
-    <%= label_tag(:child_count,"Child Admission") %>
-    <%= select_tag('child_count', options_for_select((1..10).step(1))) %>
-    <%= hidden_field_tag('event_id', @event.id) %>
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description="Transaction Payment"
-            data-locale="auto"></script>
-  </article>
+  <% if current_user && !current_user.my_event(@event) || !current_user %>
+    <% if @event.ticket_available > 1 %>
+      <div id="transaction-window">
+      <%= form_tag({controller: "transactions", action: "create"}, method: "post") do %> 
+        <article>
+          <%= label_tag(:general_count,"General Admission") %>
+          <%= select_tag('general_count', options_for_select((0..10).step(1))) %>
+          <%= label_tag(:child_count,"Child Admission") %>
+          <%= select_tag('child_count', options_for_select((0..10).step(1))) %>
+          <%= hidden_field_tag('event_id', @event.id) %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="Transaction Payment"
+                  data-locale="auto"></script>
+        </article>
+      <% end %>
+        </div>
+    <% else %> 
+    <p>Event Sold Out</p>
+    <p><%= link_to "<button>Click Here</button>".html_safe, category_event_path(@event.category_id, @event.id) %>to recieve an Email if tickets become available</p>
+  <% end %>
 <% end %>
-</div>
-
 
 <br><br>
 
 
 <div>
 <%= social_share_button_tag("Click Here To Share ") %>
-</div>
-
+<div>
