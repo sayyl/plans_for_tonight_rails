@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @corporate = Corporate.find(@event.corporate_id)
   end
 
   def new

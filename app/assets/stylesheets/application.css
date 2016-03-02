@@ -32,15 +32,18 @@
   flex-direction: column;
   height: 250px;
   color: #FFFFFF;
+  /*background-color: #0c0707;*/
+  /*background-color: #554955;*/
 }
 
-/*.header h1 {
-  order: 1;
+.img_base {
+  background-color: #0c0707;
+  margin-left: -60px;
+  margin-right: -60px;
+  margin-bottom: 30px;
+  height: 250px;
+  color: #FFFFFF;
 }
-
-.header h5 {
-  order: 2;
-}*/
 
 .index_bg {
   background: url("background.png");
@@ -49,10 +52,25 @@
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
-/*  background-size: 100%;
+}
+
+.event_overlay {
+  opacity: 0.4;
+  background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center; */
+  background-size: cover;
+}
+
+.event_header_text {
+  margin-top: -250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 250px;
+  color: #FFFFFF;
+  opacity: 1;
 }
 
 #nav_icon {
