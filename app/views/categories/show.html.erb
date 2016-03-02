@@ -32,8 +32,10 @@ function errorFunction(){
         if (results[1]) {
          //using formatted address to get city name
          var address = results[0].formatted_address.split(',')
-         var city = address[1]
-         console.log(city)
+         // var city = address[1]
+         // spoofing location to test filter
+         var c = "Vancouver"
+         console.log(c)
 
         } else {
           console.log("No results found");
@@ -77,15 +79,25 @@ function errorFunction(){
 
     <div class="grid"> 
      <% @category.events.twodays.each do |event| %>
-        <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
-          <%= link_to event_path(event.id) do %>
-            <%= image_tag event.image_url(:thumb) if event.image? %>
-          <% end %>
-            <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
-            <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
-        </div>
-      <% end %>
+        <% if event.location == "Vancouver" %>
+          <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
+            <%= link_to event_path(event.id) do %>
+              <%= image_tag event.image_url(:thumb) if event.image? %>
+            <% end %>
+              <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
+              <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
+          </div>
+        <!-- <% else %>
+          <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
+            <%= link_to event_path(event.id) do %>
+              <%= image_tag event.image_url(:thumb) if event.image? %>
+            <% end %>
+              <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
+              <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
+          </div> -->
+        <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
 </div>
 </body>
