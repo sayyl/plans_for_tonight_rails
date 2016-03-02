@@ -14,6 +14,7 @@ class Event < ActiveRecord::Base
   validates :general_ticket, presence: true
   validate  :show_date_present
 
+
   mount_uploader :image, ImageUploader
 
 

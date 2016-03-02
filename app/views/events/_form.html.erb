@@ -1,53 +1,73 @@
 
 
 <%= form_for @event, :html => {:multipart => true} do |f| %>
-  <div>
-    <%= f.label :name, "Title" %><br>
-    <%= f.text_field :name, placeholder: "Title" %>
-  </div>
-  <div>
-    <%= f.label :location %><br>
-    <%= f.text_field :location, placeholder: "Location" %>
-  </div>
-  <div>
-    <%= f.label :show_date, "Event Date" %>
-    <%= f.text_field :show_date, class: "datetimepicker"  %>
-  </div>
-  <div>
-    <%= f.label :duration, "Duration" %>
-    <%= f.telephone_field :duration, placeholder: "duration" %>
-  </div>
-  <div> 
-    <%= f.label :ticket_available, "Number Of Tickets Available" %>
-    <%= f.number_field :ticket_available %> 
-  </div> 
-  <div> 
-    <%= f.label :general_ticket, "General Ticket Price" %>
-    <%= f.text_field :general_ticket, placeholder: "10.00$" %> 
-  </div> 
-   <div> 
-    <%= f.label :child_ticket, "Child Ticket Price" %>
-    <%= f.text_field :child_ticket, placeholder: "5.00$" %> 
-  </div> 
-  <div>
-    <%= f.label :image, "Image" %>
-    <%= f.file_field :image %>
-  </div>
-  <div>
-    <%= f.label :remote_image_url, "or image URL" %>
-    <%= f.text_field :remote_image_url %>
-  </div>
-  <div>
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description, placeholder: "description" %>
-  </div>
-  <div>
-    <%= f.label :category_id, "Category" %>
-    <%= f.select('category_id', @categories.collect{|r| [(r.name), r.id]}) %>
-  </div>
- 
-  <div>
-    <%= f.submit "Submit" %> 
+  <div id="corp_reg_form">
+    <div class="form-group row">
+      <%= f.label :name, "Event Title:", :class => "col-sm-4 form-control-label" %>
+      <div class="col-sm-8">
+        <%= f.text_field :name, placeholder: "Title", :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :location,"City:", :class => "col-sm-4 form-control-label" %>
+      <div class="col-sm-8">
+        <%= f.text_field :location, placeholder: "Location", :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :show_date, "Event Date:", :class => "col-sm-4 form-control-label" %>
+      <div class="col-sm-8">
+        <%= f.text_field :show_date, :class => "datetimepicker form-control"  %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :duration, "Duration in Minutes:", :class => "col-sm-4 form-control-label" %>
+      <div class="col-sm-8">
+        <%= f.telephone_field :duration, placeholder: "60", :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :ticket_available, "Number Of Tickets Available:", :class => "col-sm-4 form-control-label" %>
+      <div class="col-sm-8">
+        <%= f.number_field :ticket_available, :class => "form-control" %> 
+      </div>
+    </div> 
+    <div class="form-group row">
+      <%= f.label :general_ticket, "General Ticket Price:", :class => "col-sm-2 form-control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_field :general_ticket, placeholder: "$10.00", :class => "form-control" %> 
+      </div> 
+      <%= f.label :child_ticket, "Child Ticket Price:", :class => "col-sm-2 form-control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_field :child_ticket, placeholder: "$5.00", :class => "form-control" %> 
+      </div>
+    </div> 
+    <div class="form-group row">
+      <%= f.label :image, "Image Uploader:", :class => "col-sm-2 form-control-label" %>
+      <div class="col-sm-4">
+        <%= f.file_field :image, :class => "form-control" %>
+      </div>
+      <%= f.label :remote_image_url, "Upload with Image URL:", :class => "col-sm-2 form-control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_field :remote_image_url, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :description, "Description:", :class => "col-sm-2 form-control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_area :description, placeholder: "description", :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :category_id, "Category:", :class => "col-sm-2 form-control-label" %>
+      <div class="col-sm-10">
+        <%= f.select('category_id', @categories.collect{|r| [(r.name), r.id]}) %>
+      </div>
+    </div>
+   
+    <div>
+      <%= f.submit "Submit", :class => "btn btn-primary" %> 
+    </div>
   </div>
 <% end %>
 

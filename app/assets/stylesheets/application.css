@@ -25,25 +25,52 @@
   margin-top: -60px;
   margin-left: -60px;
   margin-right: -60px;
-  margin-bottom: -60px;
+  margin-bottom: -40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px;
+  flex-direction: column;
+  height: 250px;
+  color: #FFFFFF;
+  /*background-color: #0c0707;*/
+  /*background-color: #554955;*/
+}
+
+.img_base {
+  background-color: #0c0707;
+  margin-left: -60px;
+  margin-right: -60px;
+  margin-bottom: 30px;
+  height: 250px;
   color: #FFFFFF;
 }
 
 .index_bg {
-  background: url("background.png");
+  background: url("http://i67.tinypic.com/o5qeqt.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
-/*  background-size: 100%;
+}
+
+.event_overlay {
+  opacity: 0.4;
+  background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center; */
+  background-size: cover;
+}
+
+.event_header_text {
+  margin-top: -250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 250px;
+  color: #FFFFFF;
+  opacity: 1;
 }
 
 #nav_icon {
@@ -110,6 +137,31 @@ h1 {
   padding-top: 50px;
 }
 
+#corp_reg_form {
+  text-align: left;
+}
+
+.event_new {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.consumer_new {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
 
 
 

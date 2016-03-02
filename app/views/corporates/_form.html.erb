@@ -10,50 +10,82 @@
     </div>
   <% end %>
 
-  <div> 
-    <%= f.label :name, "Company Name" %>
-    <%= f.text_field :name, placeholder: "name" %>
+<div id="corp_reg_form">
+  <div class="form-group row">
+    <%= f.label :name, "Company Name:", :class => "col-sm-2 form-control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, placeholder: "Company name", :class => "form-control" %>
+    </div>
   </div>
-  <div>
-    <%= f.label :address_1 %>
-    <%= f.text_field :address_1, placeholder: "Unit#" %>
-    <%= f.label :address_2 %>
-    <%= f.text_field :address_2, placeholder: "street# and name" %><br>
-    <%= f.label :city %>
-    <%= f.text_field :city, placeholder: "City" %>
-    <%= f.label :province %>
-    <%= f.text_field :province, placeholder: "Prov" %><br>
-    <%= f.label :postal_code %>
-    <%= f.text_field :postal_code, placeholder: "PC" %>
-    <%= f.label :country %>
-    <%= f.text_field :country, placeholder: "Country" %>
+  <div class="form-group row">
+    <%= f.label :address_1, "Address 1:", :class => "col-sm-2 form-control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :address_1, placeholder: "Unit, Street", :class => "form-control" %>
+    </div>
+    <%= f.label :address_2, "Address 2:", :class => "col-sm-2 form-control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :address_2, placeholder: "Unit, Street", :class => "form-control" %>
+    </div>
   </div>
-  <div> 
-    <%= f.label :phone, "Contact" %>
-    <%= f.text_field :phone, placeholder: "contact number" %>
+  <div class="form-group row">
+    <%= f.label :city, "City:", :class => "col-sm-2 form-control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :city, placeholder: "City", :class => "form-control" %>
+    </div>
+    <%= f.label :province, "Province:", :class => "col-sm-2 form-control-label" %>
+    <div class="col-sm-3">
+      <%= f.select :province, options_for_select([['AB', 'AB'], ['BC', 'BC'], ['MB', 'MB'], ['NB', 'NB'], ['NL', 'NL'], ['NS', 'NS'], ['NT', 'NT'], ['NU', 'NU'], ['ON', 'ON'], ['PE', 'PE'], ['QC', 'QC'], ['SK', 'SK'], ['YT', 'YT']]), :class => "form-control"%>
+    </div>
   </div>
-  <div> 
-    <%= f.label :website_url, "Website" %>
-    <%= f.url_field :website_url, placeholder: "your website's URL" %>
+  <div class="form-group row">
+    <%= f.label :postal_code, "Postal Code:", :class => "col-sm-2 form-control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :postal_code, placeholder: "V1V 1V1", :class => "form-control" %>
+    </div>
+    <%= f.label :country, "Country:", :class => "col-sm-2 form-control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :country, placeholder: "Country", :class => "form-control" %>
+    </div>
   </div>
-  <div>
-    <%= f.label :email, "Email" %>
-    <%= f.email_field :email, placeholder: "John@example.com" %>
+  <div class="form-group row"> 
+    <%= f.label :phone, "Contact:", :class => "col-sm-2 form-control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :phone, placeholder: "123-222-2222", :class => "form-control" %>
+    </div>
   </div>
-  <div>
-    <%= f.label :business_number, "Business Number" %>
-    <%= f.text_field :business_number, placeholder: "business number" %>
+  <div class="form-group row">
+    <%= f.label :website_url, "Website:", :class => "col-sm-2 form-control-label" %>
+    <div class="col-sm-10">
+      <%= f.url_field :website_url, placeholder: "http://wwww.example.com", :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :email, "Email:", :class => "col-sm-2 form-control-label" %>
+    <div class="col-sm-10">
+      <%= f.email_field :email, placeholder: "John@example.com", :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :business_number, "Business Number:", :class => "col-sm-2 form-control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :business_number, placeholder: "000000000", :class => "form-control" %>
+    </div>
   </div> 
-  <div> 
-    <%= f.label :password, "Password" %>
-    <%= f.password_field :password, placeholder: "password" %>
+  <div class="form-group row">
+    <%= f.label :password, "Password:", :class => "col-sm-2 form-control-label"  %>
+    <div class="col-sm-10">
+      <%= f.password_field :password, placeholder: "Password", :class => "form-control" %>
+    </div>
   </div>
-  <div> 
-    <%= f.label :password_confirmation, "Confirm Password" %>
-    <%= f.password_field :password_confirmation, placeholder: "password" %>
+  <div class="form-group row">
+    <%= f.label :password_confirmation, "Confirm Password:", :class => "col-sm-2 form-control-label"  %>
+    <div class="col-sm-10">
+      <%= f.password_field :password_confirmation, placeholder: "Confirm password", :class => "form-control" %>
+    </div>
   </div>
   <div>
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", :class => "btn btn-primary" %>
   </div>
+</div>
 <% end %>
 
