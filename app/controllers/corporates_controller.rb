@@ -21,7 +21,7 @@ class CorporatesController < ApplicationController
         {title: {text: "Total Transactions", margin: 70} },
       ]
 
-      f.series(name: "Total of transactions", yAxis: 0, data: all_transactions.select('total').collect {|t| t.total.to_i})
+      f.series(name: "Total Transaction Amount in CAD$", yAxis: 0, data: all_transactions.select('total').collect {|t| t.total.to_i})
 
       f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
       f.chart({defaultSeriesType: "column"})
@@ -32,8 +32,9 @@ class CorporatesController < ApplicationController
       f.options[:legend][:layout] = "horizontal"
       f.title(text: "Total Transactions over monthly period")
       f.xAxis(categories: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+      f.xAxis(type: :datetime)
       f.yAxis [
-        {title: {text: "Total Transactions", margin: 70} }
+        {title: {text: "Total Transactions", margin: 70}}
       ]
       f.series(type: "line", name: "Total Transactions in CAD$", yAxis: 0, data: @corporate.transactions_by_month)
 

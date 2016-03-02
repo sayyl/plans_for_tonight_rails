@@ -20,6 +20,7 @@ class Corporate < ActiveRecord::Base
     self.events.include?(event) 
   end
 
+
   def calculate_event_total_transactions
     sum = 0
     transaction_hash = {}

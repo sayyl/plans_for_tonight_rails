@@ -1,11 +1,83 @@
 <h1>Corporates#show</h1>
 <p>Find me in app/views/corporates/show.html.erb</p>
 
- <%= @event_test %>
 
-<%= high_chart("total_transactions", @total_transactions) %>
 
-<%= high_chart("transactions_monthly", @transactions_monthly) %>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">View Analytics</a>
+      <ul class="dropdown-menu dropdown-cart" role="menu">
+        <li>
+          <span class="item">
+            <span class="item-left">
+              <img src="" alt="" />
+              <span class="item-info">
+                <span>Total Transactions per Event</span>
+              </span>
+              <span class="item-right"> 
+                <button onclick="toggleChartOne()" id="total_trans"  class="btn btn-xs btn-danger pull-right" >View</button>
+              </span>
+            </span>
+          </span>
+        </li>
+        <li>
+          <span class="item">
+            <span class="item-left">
+              <img src=""/>
+              <span class="item-info">
+                <span>Total Transactions On Monthly Basis</span>
+              </span>
+            </span>
+            <span class="item-right"> 
+              <button onclick="toggleChartTwo()" id="months_trans"  class="btn btn-xs btn-danger pull-right">View</button>
+            </span>
+          </span>
+        </li>
+        <li>
+          <span class="item">
+            <span class="item-left">
+              <img src="" alt="" />
+              <span class="item-info">
+                <span>Percentage Of Sold Tickets Per Event</span>
+              </span>
+            </span>
+            <span class="item-right"> 
+              <button onclick="toggleChartThree()" id="tickets_sold"  class="btn btn-xs btn-danger pull-right">View</button>
+            </span>
+          </span>
+        </li>
+          <li>
+            <span class="item">
+              <span class="item-left">
+                <img src="" alt="" />
+                <span class="item-info">
+                  <span>Discounted Sold Tickets VS Whole Price</span>
+                </span>
+              </span>
+              <span class="item-right"> 
+                <button onclick="toggleChartFour()" id="discounted_tickets"  class="btn btn-xs btn-danger pull-right">View</button>
+              </span>
+            </span>
+          </li>
+          <li class="divider"></li>
+          <li><a class="text-center" href="">View All</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+
+
+<div id="transactions_monthly">
+  <%= high_chart("transactions_monthly", @transactions_monthly) %>
+</div>
+
+
+<div id="total_transactions">
+  <%= high_chart("total_transactions", @total_transactions) %>
+</div>
+
 
 <div id="calender">
 <%= month_calendar events: current_user.events.future do |date, events| %>
@@ -17,11 +89,11 @@
   <% end %>
 <% end %>
 </div>
- 
 
- <%= button_to "Add A New Event", new_event_path, method: :get%>
-<%#ink_to "New Event", new_event_path%>
-<button id="past_events">View Past Events</button>
+
+<%= button_to "Add A New Event", new_event_path, method: :get, class: "btn btn-primary btn-block" %>
+<button class="btn btn-primary btn-block" id="past_events">View Past Events</button>
+
 
 
 
@@ -34,8 +106,10 @@
     <%= image_tag event.image_url(:thumb) if event.image? %>
     <p>Event Title: <%= link_to event.name, event_path(event.id) %></p>
     <p>Description: <%= event.description %></p>
-    <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4><br>
+    <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
+    <div id="event_highchart">
     <%= high_chart("Event#{event.id}", event.recent_transactions_chart) %>
+    </div>
   <% end %>
 </div>
 
