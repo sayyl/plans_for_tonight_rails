@@ -79,25 +79,15 @@ function errorFunction(){
 
     <div class="grid"> 
      <% @category.events.twodays.each do |event| %>
-        <!-- <% if event.location == "Vancouver" %> -->
-          <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
-            <%= link_to event_path(event.id) do %>
-              <%= image_tag event.image_url(:thumb) if event.image? %>
-            <% end %>
-              <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
-              <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
-          </div>
-        <!-- <% else %>
-          <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
-            <%= link_to event_path(event.id) do %>
-              <%= image_tag event.image_url(:thumb) if event.image? %>
-            <% end %>
-              <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
-              <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
-          </div> -->
-        <% end %>
-        <% end %>
-      </div>
+        <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
+          <%= link_to event_path(event.id) do %>
+            <%= image_tag event.image_url(:thumb) if event.image? %>
+          <% end %>
+            <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
+            <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
+        </div>
+      <% end %>
     </div>
+  </div>
 </div>
 </body>
