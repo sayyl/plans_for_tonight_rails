@@ -31,6 +31,6 @@ class CorporatesController < ApplicationController
   protected
 
   def corporate_params 
-    params.require(:corporate).permit(:name, :address_1, :address_2, :city, :province, :postal_code, :country, :phone, :email, :business_number, :password, :password_confirmation, :verified)
+    params.require(:corporate).permit(:name, :address_1, :address_2, :city, :province, :postal_code, :country, :phone, :email, :business_number, :password, :password_confirmation, :verified, :website_url)
   end
 end

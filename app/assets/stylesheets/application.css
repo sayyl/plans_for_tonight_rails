@@ -25,13 +25,22 @@
   margin-top: -60px;
   margin-left: -60px;
   margin-right: -60px;
-  margin-bottom: -60px;
+  margin-bottom: -40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px;
+  flex-direction: column;
+  height: 250px;
   color: #FFFFFF;
 }
+
+/*.header h1 {
+  order: 1;
+}
+
+.header h5 {
+  order: 2;
+}*/
 
 .index_bg {
   background: url("background.png");
@@ -110,6 +119,31 @@ h1 {
   padding-top: 50px;
 }
 
+#corp_reg_form {
+  text-align: left;
+}
+
+.event_new {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.consumer_new {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
 
 
 
