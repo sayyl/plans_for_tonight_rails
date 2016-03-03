@@ -24,8 +24,8 @@ class Corporate < ActiveRecord::Base
   def calculate_event_total_transactions
     sum = 0
     transaction_hash = {}
-    self.events.limit(5).each do |event| 
-      event.transactions.limit(5).each do |transaction|
+    self.events.each do |event| 
+      event.transactions.each do |transaction|
         sum += transaction.total.to_i
       end
       transaction_hash[event.name] = sum
