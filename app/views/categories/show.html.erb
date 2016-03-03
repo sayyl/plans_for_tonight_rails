@@ -91,9 +91,10 @@ function errorFunction(){
               </div>
               <% end %>
             </div>
-          
-            <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
-            <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
+            <div class="eventcard_text">
+              <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
+              <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
+            </div>
         </div>
       <% end %>
     </div>
