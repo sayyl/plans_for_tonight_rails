@@ -47,13 +47,13 @@ class Event < ActiveRecord::Base
   end
 
   def tags
-    if (self.show_date > Time.now and self.show_date <= Time.now + 6.hours)
+    if (self.show_date > Time.now && self.show_date <= Time.now + 6.hours) 
       return "sixhours"
-    elsif (self.show_date > Time.now and self.show_date <= Time.now + 12.hours)
+    elsif (self.show_date > Time.now && self.show_date <= Time.now + 12.hours)
       return "twelvehours"
-    elsif (self.show_date > Time.now and self.show_date <= Time.now + 24.hours)
+    elsif (self.show_date > Time.now && self.show_date <= Time.now + 24.hours)
       return "oneday"
-    elsif (self.show_date > Time.now and self.show_date <= Time.now + 48.hours)
+    elsif (self.show_date > Time.now && self.show_date <= Time.now + 48.hours)
       return "twodays"
     end
   end

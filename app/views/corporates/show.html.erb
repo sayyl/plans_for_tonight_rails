@@ -1,7 +1,8 @@
-<h1>Corporates#show</h1>
-<p>Find me in app/views/corporates/show.html.erb</p>
+<%= render 'sidebar' %>
 
 
+
+<<<<<<< HEAD
 
 <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -79,7 +80,8 @@
 </div>
 
 
-<div id="calender">
+
+<div id="calendar">
 <%= month_calendar events: current_user.events.future do |date, events| %>
   <%= date %>
   <% events.each do |event| %>
@@ -93,9 +95,6 @@
 
 <%= button_to "Add A New Event", new_event_path, method: :get, class: "btn btn-primary btn-block" %>
 <button class="btn btn-primary btn-block" id="past_events">View Past Events</button>
-
-
-
 
 
 <div id="show_past">

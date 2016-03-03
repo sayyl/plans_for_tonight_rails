@@ -10,54 +10,42 @@ $('#past_events').on('click', function() {
   return false; 
 });
 
-
-
-
-
 $('a[data-popup').on('click', function(e) {window.open($(this).attr('href'), "Popup", "height=600, width=600"); e.preventDefault(); });
 
-function toggleChartOne() { 
-  // get the clock 
-  var myChart = document.getElementById('total_transactions');
-  // get the current value of the clock's display property 
-  var displaySetting = myChart.style.display;
-  // also get the clock button, so we can change what it says 
-  var chartButton = document.getElementById('total_trans');
-  // now toggle the clock and the button text, depending on current state
-  if (displaySetting == 'block') { 
-    // clock is visible. hide it
-    myChart.style.display = 'none';
-    // change button text
-    chartButton.innerHTML = 'View';
-  }
-  else { 
-    // clock is hidden. show it 
-    myChart.style.display = 'block';
-    // change button text
-    chartButton.innerHTML = 'Close';
-  }
-}  
 
-
-  function toggleChartTwo() { 
-      // get the clock 
-  var myChart = document.getElementById('transactions_monthly');
-    // get the current value of the clock's display property 
-    var displaySetting = myChart.style.display;
-    // also get the clock button, so we can change what it says 
-    var chartButton = document.getElementById('months_trans');
-    // now toggle the clock and the button text, depending on current state
-    if (displaySetting == 'block') { 
-      // clock is visible. hide it
-      myChart.style.display = 'none';
-      // change button text
-      chartButton.innerHTML = 'View';
-    }
-    else { 
-      // clock is hidden. show it 
-      myChart.style.display = 'block';
-      // change button text
-      chartButton.innerHTML = 'Close';
-    }
-  }  
+function htmlbodyHeightUpdate(){
+  var height3 = $( window ).height()
+  var height1 = $('.nav').height()+50
+  height2 = $('.main').height()
+  if(height2 > height3){
+    $('html').height(Math.max(height1,height3,height2)+10);
+    $('body').height(Math.max(height1,height3,height2)+10);
+  }
+  else
+  {
+    $('html').height(Math.max(height1,height3,height2));
+    $('body').height(Math.max(height1,height3,height2));
+  }
   
+}
+$(document).ready(function () {
+  htmlbodyHeightUpdate()
+  $( window ).resize(function() {
+    htmlbodyHeightUpdate()
+  });
+  $( window ).scroll(function() {
+    height2 = $('.main').height()
+      htmlbodyHeightUpdate()
+  });
+});
+
+$('#graph1').on('click', function() {
+  $('#total_transactions').toggle();
+  $('#calendar').toggle();
+});
+
+$('#graph2').on('click', function() {
+  $('#transaction_monthly').toggle();
+  $('#calendar').toggle();
+});
+>>>>>>> e8263ffae5150f933141b78ea961bbb40d7f6395

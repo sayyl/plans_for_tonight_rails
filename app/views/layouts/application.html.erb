@@ -2,21 +2,15 @@
 <html>
 <head>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.js"></script> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <title>PlansForTonightRails</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  
+
  
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'layouts/nav' %>
-  <% flash.each do |key, value| %>
-    <%= content_tag(:div, value) %>
-  <% end %>
-  <% if current_user %>
-    Signed in as  <%= current_user.name %><%= link_to "Log Out", session_path("current"), method: :delete %> 
-  <% end %> 
- 
+  <%= render 'layouts/nav' %> 
   
   <%= yield %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
