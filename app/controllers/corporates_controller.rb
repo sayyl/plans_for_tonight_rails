@@ -42,6 +42,27 @@ class CorporatesController < ApplicationController
       f.chart({defaultSeriesType: "column"})
     end
 
+     @ticket_sales = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart({:defaultSeriesType=>"pie", :margin=> [50, 0, 0, 0]})
+      f.title(text: " % of Tickets Sold for Events")
+    
+     
+      f.yAxis [
+        {title: {text: "Total Transactions", margin: 70}}
+      ]
+      f.series(type: "pie", name: "Total Transactions in CAD$", yAxis: 0, data: @corporate.transactions_by_month)
+
+        f.series({
+      :type => "pie",
+      :name => "2008",
+      :size => "45%",
+      :innerSize => "20%",
+      :data => [{ :name => "Firefox", :y => 44.2, :color => "#4572A7" },{ :name => "IE", :y => 46.6, :color => "#AA4643" },{ :name => "Chrome", :y => 3.1, :color => "#89A54E" },{ :name => "Safari", :y => 2.7, :color => "#80699B" },{ :name => "Opera", :y => 2.3, :color => "#3D96AE" },{ :name => "Mozilla", :y => 0.4, :color => "#DB843D" }],
+      :dataLabels=> { :enabled => false }
+  }
+  )
+    end
+
 
     
     

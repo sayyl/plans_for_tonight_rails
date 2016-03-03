@@ -42,6 +42,7 @@ class TransactionsController < ApplicationController
     redirect_to event_path(@event.id)
   end
 
+  
 
 
 

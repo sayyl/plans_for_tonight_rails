@@ -17,9 +17,13 @@
       <ul class="nav navbar-nav">
       <% if !current_user %>
         <li><%= link_to "Partner with Us", new_corporate_path %></li>
-      <% else %>
+      <% elsif current_user and is_corporate? %>
         <li><%= link_to "Visit Your Dashboard", corporate_path(current_user) %>
+      <% else %>
+        <li><%= link_to "View Account", consumer_path(current_user) %>
       <% end %>
+
+
         <li><a href="#">Last Minute Deals</a></li>
       </ul>
         <ul class="nav navbar-nav navbar-right">
