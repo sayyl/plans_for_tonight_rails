@@ -14,7 +14,7 @@
   <% if current_user %>
   <% if current_user.my_event(@event) %>
    <h2><%= @event.name %></h2> 
-   <h3>(<%= link_to "edit", edit_category_event_path(@event.category_id,@event) %>, <%= link_to "delete", category_event_path(@event.category_id, @event), method: :delete,confirm: "You sure?" %>) </h3><br>
+   <h3><div id="trash_delete"><%= link_to "edit", edit_category_event_path(@event.category_id,@event) %>, <%= link_to "delete", category_event_path(@event.category_id, @event), method: :delete,confirm: "You sure?" %>&nbsp <i class="fa fa-trash"></i> </div></h3><br>
    <% end %>
    <% end %>
 <div class="row ticket_sales">
