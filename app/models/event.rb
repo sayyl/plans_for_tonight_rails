@@ -80,8 +80,7 @@ class Event < ActiveRecord::Base
         {title: {text: "Total Transactions", margin: 70} }
       ]
       f.series(type: "bubble", name: "Number of Transactions", yAxis: 0, data: self.event_transactions_time)
-
-      f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
+      f.legend(align: 'right', verticalAlign: 'top', y: 75, x: 0, layout: 'vertical')
       f.chart({defaultSeriesType: "column"})
     end
   end

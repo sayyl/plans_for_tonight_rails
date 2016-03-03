@@ -7,6 +7,678 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Faker::Config.locale = :'en-CA'
 
+
+# 3.times do |n|
+#   Transaction.create!(
+#     consumer_id: Faker::Number.between(1, 10),
+#     total: 105,
+#     successful: true,
+#     event_id: 6,
+#     created_at: Faker::Time.between("2016-01-02 01:00:00", "2016-01-03 23:50:00", :all)
+#   )
+# end
+
+# 15.times do |n|
+#   Transaction.create!(
+#     consumer_id: Faker::Number.between(1, 10),
+#     total: 35,
+#     successful: true,
+#     event_id: 6,
+#     created_at: Faker::Time.between("2016-01-02 01:00:00", "2016-01-03 23:50:00", :all)
+#   )
+# end
+
+
+
+# 3.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 82,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 3.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 83,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 3.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 84,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 85,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 86,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 87,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 88,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 89,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 90,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 91,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 92,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 93,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 94,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 95,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 96,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 97,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 98,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 99,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 6,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 3.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 63,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 5,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 5.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 64,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 5,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 5.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 65,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 5,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 5.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 66,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 5,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 5.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 67,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 5,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 5.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 68,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 5,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 5.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 69,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 5,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 5.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 70,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 5,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 5.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 71,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 5,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 3.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 43,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 3.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 44,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 3.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 45,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 46,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 47,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 48,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 49,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 50,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 51,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 52,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 53,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 54,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 55,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 56,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 57,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 58,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 59,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 60,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 61,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 35,
+#     transaction_id: 62,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 4,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 2.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 14,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 2.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 15,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 2.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 16,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+
+# 2.times do |n|
+#   Ticket.create!(
+#     price: 25,
+#     transaction_id: 17,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 20,
+#     transaction_id: 23,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 20,
+#     transaction_id: 24,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 20,
+#     transaction_id: 25,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 20,
+#     transaction_id: 26,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 20,
+#     transaction_id: 27,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 20,
+#     transaction_id: 28,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 20,
+#     transaction_id: 29,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 20,
+#     transaction_id: 30,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+# 1.times do |n|
+#   Ticket.create!(
+#     price: 20,
+#     transaction_id: 31,
+#     ticket_type: "General",
+#     confirmation_num: Faker::Number.number(9),
+#     event_id: 2,
+#     created_at: Faker::Time.between("2015-10-21 01:00:00", "2015-10-22 23:50:00", :all)
+#   )
+# end
+
+
+
+#<Transaction id: 13, consumer_id: 5, total: #<BigDecimal:a87c9f4,'0.5E2',9(18)>, successful: true, created_at: "2015-10-21 22:43:07", updated_at: "2016-03-03 07:29:01", event_id: 2>, #<Transaction id: 14, consumer_id: 2, total: #<BigDecimal:a87c0bc,'0.5E2',9(18)>, successful: true, created_at: "2015-10-21 11:09:29", updated_at: "2016-03-03 07:29:02", event_id: 2>, #<Transaction id: 15, consumer_id: 5, total: #<BigDecimal:a863940,'0.5E2',9(18)>, successful: true, created_at: "2015-10-22 02:36:59", updated_at: "2016-03-03 07:29:02", event_id: 2>, #<Transaction id: 16, consumer_id: 10, total: #<BigDecimal:a8630d0,'0.5E2',9(18)>, successful: true, created_at: "2015-10-22 20:27:45", updated_at: "2016-03-03 07:29:02", event_id: 2>, #<Transaction id: 17, consumer_id: 1, total: #<BigDecimal:a862784,'0.5E2',9(18)>, successful: true, created_at: "2015-10-21 21:05:28", updated_at: "2016-03-03 07:29:02", event_id: 2>, #<Transaction id: 18, consumer_id: 2, total: #<BigDecimal:a861f64,'0.25E2',9(18)>, successful: true, created_at: "2015-10-21 06:40:23", updated_at: "2016-03-03 07:29:03", event_id: 2>, #<Transaction id: 19, consumer_id: 7, total: #<BigDecimal:a8617e4,'0.25E2',9(18)>, successful: true, created_at: "2015-10-22 13:19:57", updated_at: "2016-03-03 07:29:03", event_id: 2>, #<Transaction id: 20, consumer_id: 1, total: #<BigDecimal:a860fc4,'0.25E2',9(18)>, successful: true, created_at: "2015-10-22 10:03:29", updated_at: "2016-03-03 07:29:03", event_id: 2>, #<Transaction id: 21, consumer_id: 9, total: #<BigDecimal:a8607cc,'0.25E2',9(18)>, successful: true, created_at: "2015-10-21 23:58:32", updated_at: "2016-03-03 07:29:03", event_id: 2>, #<Transaction id: 22, consumer_id: 5, total: #<BigDecimal:a84bed0,'0.25E2',9(18)>, successful: true, created_at: "2015-10-21 19:33:25", updated_at: "2016-03-03 07:29:03", event_id: 2>]> 
+
+
+
+
+
+
+
 # 99.times do |n|
 #   name  = Faker::Name.first_name
 #   email = Faker::Internet.free_email

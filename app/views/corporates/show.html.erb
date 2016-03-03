@@ -8,9 +8,16 @@
   <%= high_chart("transactions_monthly", @transactions_monthly) %>
 </div>
 
+
+<div id="ticket_sales">
+<%= high_chart("ticket_sales", @ticket_sales) %>
+</div>
+
+
 <div class="add_button">
   <%= button_to "Add A New Event", new_event_path, method: :get, :class => "btn btn-primary" %>
 </div>
+
 <div id="calendar">
 <%= month_calendar events: current_user.events.future do |date, events| %>
   <%= date %>

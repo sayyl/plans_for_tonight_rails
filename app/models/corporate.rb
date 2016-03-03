@@ -24,8 +24,8 @@ class Corporate < ActiveRecord::Base
   def calculate_event_total_transactions
     sum = 0
     transaction_hash = {}
-    self.events.limit(5).each do |event| 
-      event.transactions.limit(5).each do |transaction|
+    self.events.each do |event| 
+      event.transactions.each do |transaction|
         sum += transaction.total.to_i
       end
       transaction_hash[event.name] = sum
@@ -81,6 +81,24 @@ class Corporate < ActiveRecord::Base
    return months
 
     # result = {"january": 8000, "february: 100000"}
+  end
+
+
+  def percentage_ticket_per_event
+    result = []
+    sum = 0
+    
+    self.events.past.limit(5).each do |e|
+      total = (e.tickets.count * 100)/(e.tickets.count + e.ticket_available)
+      result << {name: e.name, y: total}
+      sum += total
+    end 
+
+    for i in 0..result.length-1
+      result[i][:y] /= sum
+    end 
+
+    return result 
   end
 
 end

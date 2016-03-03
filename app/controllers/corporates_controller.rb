@@ -20,10 +20,9 @@ class CorporatesController < ApplicationController
       f.yAxis [
         {title: {text: "Total Transactions", margin: 70} },
       ]
+      f.series(name: "Total Transaction Amount in CAD$", data: all_transactions.select('total').collect {|t| t.total.to_i})
 
-      f.series(name: "Total Transaction Amount in CAD$", yAxis: 0, data: all_transactions.select('total').collect {|t| t.total.to_i})
-
-      f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
+      # f.legend(align: 'right', verticalAlign: 'top', y: 75, x: 0, layout: 'vertical')
       f.chart({defaultSeriesType: "column"})
     end
 
@@ -41,9 +40,19 @@ class CorporatesController < ApplicationController
       f.chart({defaultSeriesType: "column"})
     end
 
-
-    
-    
+     @ticket_sales = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart({:defaultSeriesType=>"pie", :margin=> [50, 200, 60, 170]})
+      f.title(text: " % of Tickets Sold for Events")
+      f.yAxis [
+        {title: {text: "Total Transactions", margin: 70}}
+      ]
+      f.series({
+      :type => "pie",
+      :name => "Event Sales Precentage",
+      :data => @corporate.percentage_ticket_per_event
+      }
+      )
+    end    
   end
 
   def new
