@@ -18,7 +18,7 @@ class CorporatesController < ApplicationController
       f.yAxis [
         {title: {text: "Total Transactions", margin: 70} },
       ]
-      f.series(name: "Total Transaction Amount in CAD$", data: @corporate.calculate_event_total_transactions)
+      f.series(name: "Total Transaction Amount in CAD", data: @corporate.calculate_event_total_transactions)
 
       f.legend(align: 'right', verticalAlign: 'top', y: 75, x: 0, layout: 'vertical')
       f.chart({defaultSeriesType: "column"})
@@ -37,12 +37,12 @@ class CorporatesController < ApplicationController
     @transactions_monthly = LazyHighCharts::HighChart.new('graph') do |f|
       f.options[:chart][:defaultSeriesType] = "area"
       f.options[:legend][:layout] = "horizontal"
-      f.title(text: "Total Transactions over monthly period")
+      f.title(text: "Total Transactions by Month")
       f.xAxis(categories: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
       f.yAxis [
         {title: {text: "Total Transactions", margin: 70}}
       ]
-      f.series(type: "line", name: "Total Transactions in CAD$", yAxis: 0, data: @corporate.transactions_by_month)
+      f.series(type: "line", name: "Total Transactions in CAD", yAxis: 0, data: @corporate.transactions_by_month)
 
       f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
       f.chart({defaultSeriesType: "column"})
@@ -50,13 +50,13 @@ class CorporatesController < ApplicationController
 
      @ticket_sales = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart({:defaultSeriesType=>"pie", :margin=> [50, 200, 60, 170]})
-      f.title(text: " % of Tickets Sold for Events")
+      f.title(text: "Event Ticket Sales")
       f.yAxis [
-        {title: {text: "Total Transactions", margin: 70}}
+        {title: {text: "Total Transactions (% of Total Sales)", margin: 70}}
       ]
       f.series({
       :type => "pie",
-      :name => "Event Sales Precentage",
+      :name => "Event Ticket Sales Percentage",
       :data => @corporate.percentage_ticket_per_event
       }
       )

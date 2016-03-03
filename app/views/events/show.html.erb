@@ -66,7 +66,9 @@
       <p>Event Sold Out</p>
       <p><i class="fa fa-envelope float_left icon_color"> </i> <%= link_to "Click Here".html_safe, category_event_path(@event.category_id, @event.id) %> to recieve an Email if tickets become available.</p>
       <% else %>
-      <p> Tickets will be available to buy 48 hours prior to <%= formatted_date(@event.show_date) %></p>
+      <div id="future_tickets">
+      <h4> Tickets will be available to buy 48 hours prior to<br> <%= formatted_date(@event.show_date) %></h4>
+      </div>
     <% end %>
   <% end %>
 </div>
@@ -74,10 +76,6 @@
 </div>
 
   <br><br>
-  
-<div>
-<%= social_share_button_tag("Click Here To Share ") %>
-</div>
 
 <div class="social_share">
   <p>Share this event: <%= social_share_button_tag("Click Here To Share ") %></p>
