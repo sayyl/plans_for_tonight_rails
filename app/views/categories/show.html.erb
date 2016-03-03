@@ -20,7 +20,8 @@ function errorFunction(){
   function initialize() {
     geocoder = new google.maps.Geocoder();
 
-
+    //If you are fancy use the geocoder to select city
+    $("#city-select option:eq(1)").attr('selected', 'selected');
 
   }
 
@@ -32,9 +33,9 @@ function errorFunction(){
         if (results[1]) {
          //using formatted address to get city name
          var address = results[0].formatted_address.split(',')
-         // var city = address[1]
+         var city = address[1]
          // spoofing location to test filter
-         var city = "Vancouver"
+         //var city = "Vancouver"
          console.log(city)
 
         } else {
@@ -60,15 +61,15 @@ function errorFunction(){
 
     <div class="filters">
       <label>Location:  </label>
-      <select class="option-set clearfix" data-filter-group="location">
-        <option value="*" data-filter-value="" class="selected">show all</option>
+      <select id="city-select" class="option-set clearfix filter-selector" data-filter-group="location">
+        <option data-filter-value="" class="selected">show all</option>
         <%= @category.events.pluck(:location).uniq.each do |location| %>
           <option value="#filter-location-<%= location %>" data-filter-value=".<%= location %>"> <%= location %> </option>
         <% end %>
       </select>
 
       <label>Happening In:  </label>
-      <select class="filter option-set clearfix" data-filter-group="time">
+      <select id='time-select' class="filter option-set clearfix filter-selector" data-filter-group="time">
         <option value="*" data-filter-value="" class="selected">show all</option>
         <option value="#filter-time-twodays" data-filter-value=".twodays">under 48 hrs</option>
         <option value="#filter-time-oneday" data-filter-value=".oneday">under 24 hrs</option>
