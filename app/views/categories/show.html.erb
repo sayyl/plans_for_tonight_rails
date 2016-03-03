@@ -1,5 +1,5 @@
 <head>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?"></script> 
 <script type="text/javascript"> 
   var geocoder;
 
@@ -20,8 +20,9 @@ function errorFunction(){
   function initialize() {
     geocoder = new google.maps.Geocoder();
 
-
-
+    //If you are fancy use the geocoder to select city
+    $("#city-select option:eq(1)").attr('selected', 'selected');
+    setGridFilter();
   }
 
   function codeLatLng(lat, lng) {
@@ -29,30 +30,13 @@ function errorFunction(){
     var latlng = new google.maps.LatLng(lat, lng);
     geocoder.geocode({'latLng': latlng}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-      console.log(results)
         if (results[1]) {
-         //formatted address
-         console.log(results[0].formatted_address)
-         console.log("this is the results[1] result log")
-        //find country name
-             for (var i=0; i<results[0].address_components.length; i++) {
-            for (var b=0;b<results[0].address_components[i].types.length;b++) {
-
-            //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
-                if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
-                    //this is the object you are looking for
-                    city= results[0].address_components[i];
-                    break;
-                }
-            }
-        }
-        //city data
-        console.log("this is the city short name:")
-        console.log(city.short_name)
-
-        console.log("this is the city long name:")
-        console.log(city.long_name)
-
+         //using formatted address to get city name
+         var address = results[0].formatted_address.split(',')
+         var city = address[1]
+         // spoofing location to test filter
+         //var city = "Vancouver"
+         console.log(city)
 
         } else {
           console.log("No results found");
@@ -80,15 +64,15 @@ function errorFunction(){
 
     <div class="filters">
       <label>Location:  </label>
-      <select class="option-set clearfix" data-filter-group="location">
-        <option value="*" data-filter-value="" class="selected">show all</option>
+      <select id="city-select" class="option-set clearfix filter-selector" data-filter-group="location">
+        <option data-filter-value="" class="selected">show all</option>
         <%= @category.events.pluck(:location).uniq.each do |location| %>
           <option value="#filter-location-<%= location %>" data-filter-value=".<%= location %>"> <%= location %> </option>
         <% end %>
       </select>
 
       <label>Happening In:  </label>
-      <select class="filter option-set clearfix" data-filter-group="time">
+      <select id='time-select' class="filter option-set clearfix filter-selector" data-filter-group="time">
         <option value="*" data-filter-value="" class="selected">show all</option>
         <option value="#filter-time-twodays" data-filter-value=".twodays">under 48 hrs</option>
         <option value="#filter-time-oneday" data-filter-value=".oneday">under 24 hrs</option>
