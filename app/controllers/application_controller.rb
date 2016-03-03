@@ -31,10 +31,18 @@ class ApplicationController < ActionController::Base
       return @current_user
     end
 
+    def is_corporate?
+      if session[:role] == "corporate"
+        return true
+      else
+        return false
+      end
+    end
+
 
 
     @categories = Category.all 
     
 
-  helper_method :current_user, :revert_user
+  helper_method :current_user, :revert_user, :is_corporate?
 end

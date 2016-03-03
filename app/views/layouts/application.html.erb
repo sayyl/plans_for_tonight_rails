@@ -20,6 +20,8 @@
   
   <%= yield %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-
+  <% if is_corporate? %> 
+    <p>I'm a corporate</p>
+  <% end %>
 </body>
 </html>
