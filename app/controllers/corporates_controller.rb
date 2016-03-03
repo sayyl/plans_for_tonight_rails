@@ -32,7 +32,6 @@ class CorporatesController < ApplicationController
       f.options[:legend][:layout] = "horizontal"
       f.title(text: "Total Transactions over monthly period")
       f.xAxis(categories: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
-      f.xAxis(type: :datetime)
       f.yAxis [
         {title: {text: "Total Transactions", margin: 70}}
       ]
