@@ -9,7 +9,7 @@
   </div>
 
    <%= link_to category_path(@event.category_id) do%>
-      <p><i class="fa fa-chevron-left fa-fw" id="back_button"></i> Back</p>
+      <p><i class="fa fa-chevron-left fa-fw float_left" ></i> Back</p>
    <% end %>
   <% if current_user %>
   <% if current_user.my_event(@event) %>

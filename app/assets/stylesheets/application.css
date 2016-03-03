@@ -15,13 +15,17 @@
  *= require_tree .
  *= require_self
  */
+
+ #show_past {
+  display: none;
+}
  
 #category_img {
   width: 200px;
   height: 200px;
 }
 
-#back_button {
+.float_left {
   float: left;
   padding-top: 3px;
 }

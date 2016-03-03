@@ -1,3 +1,20 @@
-// Place all the styles related to the transactions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#print_link {
+  display: flex;
+  align-content: flex-end;
+  justify-content: flex-end;
+}
+
+/*#print_button {
+  float: right;
+  background-color: none;
+}*/
+
+input[type=button] {
+    padding:5px; 
+    border: none;
+    background-color: #FFFFFF;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #7e00d7;
+    text-decoration: underline;
+}
