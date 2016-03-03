@@ -50,14 +50,17 @@ function errorFunction(){
 </head> 
 <body onload="initialize()">
 <div class="content">
+  <div class="img_base">
+    <div class="header"  style="background-image: url(<%=@category.image %>)">
+    </div>
+    <div class="event_header_text">
+      <h1><%= @category.name %></h1>
+    </div>
+  </div>
+
+
   <div id="categories-page">
-    <%= link_to "Home", events_path %>
     <%= link_to "Edit Category", edit_category_path(@category) %>
-
-    <h1>Categories#show</h1>
-    <p>Find me in app/views/categories/show.html.erb</p>
-
-
 
     <div class="filters">
       <label>Location:  </label>
@@ -79,16 +82,22 @@ function errorFunction(){
     </div>
 
     <div class="grid"> 
-     <% @category.events.twodays.each do |event| %>
+     <% @category.events.future.each do |event| %>
         <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
-          <%= link_to event_path(event.id) do %>
-            <%= image_tag event.image_url(:thumb) if event.image? %>
-          <% end %>
+          
+            <div class="eventcard_img_base">
+              <%= link_to event_path(event.id) do %>
+              <div class="card eventcard_overlay"  style="background-image: url(<%=event.image %>)">
+              </div>
+              <% end %>
+            </div>
+          
             <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
             <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
         </div>
       <% end %>
     </div>
   </div>
+</div>
 </div>
 </body>
