@@ -31,7 +31,11 @@ class Event < ActiveRecord::Base
   end
 
   def self.twodays
-    future.where("show_date <= '#{Time.now + 48.hours}' ")
+    where("show_date <= '#{Time.now + 48.hours}' ")
+  end
+
+  def show_date_is_within_48_hours
+    Time.now > show_date - 48.hours
   end
 
   def self.oneday
