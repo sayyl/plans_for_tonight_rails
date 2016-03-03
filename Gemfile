@@ -76,4 +76,4 @@ gem 'time_difference', '~> 0.4.2'
 
 gem "simple_calendar", "~> 2.0"
 gem 'social-share-button', '~> 0.1.6'
-gem 'stripe'
+
