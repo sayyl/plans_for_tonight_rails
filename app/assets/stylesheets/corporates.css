@@ -1,3 +1,21 @@
+/* graphs */
+
+#show_past {
+  display: none;
+}
+
+#total_transactions {
+  display: none;
+  width: 1200px;
+  border: 1px solid grey;
+}
+
+#transactions_monthly {
+  display: none;
+  width: 1200px;
+  border: 1px solid grey;
+}
+
 ul.dropdown-cart{
     min-width:250px;
 }

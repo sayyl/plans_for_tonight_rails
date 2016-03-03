@@ -45,7 +45,6 @@ $('#graph1').on('click', function() {
 });
 
 $('#graph2').on('click', function() {
-  $('#transaction_monthly').toggle();
+  $('#transactions_monthly').toggle();
   $('#calendar').toggle();
 });
->>>>>>> e8263ffae5150f933141b78ea961bbb40d7f6395
