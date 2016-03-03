@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160302084810) do
 
   create_table "events", force: true do |t|
     t.integer  "corporate_id"
+    t.integer  "category_id"
     t.string   "name"
     t.string   "location"
     t.text     "description"
@@ -63,7 +64,6 @@ ActiveRecord::Schema.define(version: 20160302084810) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "ticket_available"
-    t.integer  "category_id"
     t.string   "remote_image_url"
     t.decimal  "general_ticket"
     t.decimal  "child_ticket"

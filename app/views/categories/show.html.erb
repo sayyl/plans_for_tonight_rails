@@ -21,7 +21,7 @@ function errorFunction(){
     geocoder = new google.maps.Geocoder();
 
     //If you are fancy use the geocoder to select city
-    $("#city-select option:eq(1)").attr('selected', 'selected');
+    $("#city-select > [data-filter-value='.Vancouver']").attr('selected', 'selected');
     setGridFilter();
   }
 
@@ -33,10 +33,10 @@ function errorFunction(){
         if (results[1]) {
          //using formatted address to get city name
          var address = results[0].formatted_address.split(',')
-         var city = address[1]
+         var current_city = address[1]
          // spoofing location to test filter
          //var city = "Vancouver"
-         console.log(city)
+         console.log(current_city)
 
         } else {
           console.log("No results found");
@@ -60,7 +60,7 @@ function errorFunction(){
 
 
   <div id="categories-page">
-    <%= link_to "Edit Category", edit_category_path(@category) %>
+  
 
     <div class="filters">
       <label>Location:  </label>
@@ -91,9 +91,10 @@ function errorFunction(){
               </div>
               <% end %>
             </div>
-          
-            <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
-            <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
+            <div class="eventcard_text">
+              <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
+              <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
+            </div>
         </div>
       <% end %>
     </div>

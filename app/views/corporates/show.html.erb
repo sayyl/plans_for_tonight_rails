@@ -8,6 +8,16 @@
   <%= high_chart("transactions_monthly", @transactions_monthly) %>
 </div>
 
+
+<div id="ticket_sales">
+<%= high_chart("ticket_sales", @ticket_sales) %>
+</div>
+
+
+<div class="add_button">
+  <%= button_to "Add A New Event", new_event_path, method: :get, :class => "btn btn-primary" %>
+</div>
+
 <div id="calendar">
 <%= month_calendar events: current_user.events.future do |date, events| %>
   <%= date %>
@@ -19,14 +29,14 @@
 <% end %>
 </div>
 
-
-<%= button_to "Add A New Event", new_event_path, method: :get, class: "btn btn-primary btn-block" %>
-<button class="btn btn-primary btn-block" id="past_events">View Past Events</button>
+<div class="past_button">
+  <button class="btn btn-primary" id="past_events">View Past Events</button>
+</div>
 
 
 <div id="show_past">
   <h3> Past Events </h3>
-  <% current_user.events.past.limit(5).each do |event| %>
+  <% current_user.events.past.each do |event| %>
     <p><%= event.name %></p>
     <p><%= event.location %> </p>
     <%= image_tag event.image_url(:thumb) if event.image? %>

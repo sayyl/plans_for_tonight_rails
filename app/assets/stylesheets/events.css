@@ -13,7 +13,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.price_display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   flex-direction: row;
+  width: 90%;
+}
+
+.event_description {
+  font-style: italic;
+  width: 90%;
 }
 
 .ticket_type {
@@ -27,9 +40,25 @@
   padding-left: 10px;
   font-size: 18px;
   display: flex;
+  align-items: center;  
+  justify-content: space-between;
+  flex-direction: column;
+  width: 275px;
+}
+
+.ticket_type_description {
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 275px;
+  flex-direction: row;
+  padding-left: 15px;
+}
+.admission_price {
+  order: 1;
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  font-size: 18px;
 }
 
 .text_highlight {

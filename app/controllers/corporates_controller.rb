@@ -12,27 +12,33 @@ class CorporatesController < ApplicationController
     # @transaction_by_month = @corporate.transaction_by_month 
      # @event_test = @corporate.event_transactions_time
 
-    all_transactions = Transaction.joins(:event).where("events.corporate_id = #{current_user.id}")
-
     @total_transactions = LazyHighCharts::HighChart.new('bar') do |f|
       f.title(text: "Total Transactions Per Event")
       f.xAxis(categories: @corporate.events.select('name').collect {|e| e.name})
       f.yAxis [
         {title: {text: "Total Transactions", margin: 70} },
       ]
+      f.series(name: "Total Transaction Amount in CAD$", data: @corporate.calculate_event_total_transactions)
 
-      f.series(name: "Total Transaction Amount in CAD$", yAxis: 0, data: all_transactions.select('total').collect {|t| t.total.to_i})
-
-      f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
+      f.legend(align: 'right', verticalAlign: 'top', y: 75, x: 0, layout: 'vertical')
       f.chart({defaultSeriesType: "column"})
     end
+    # @total_transactions = LazyHighCharts::HighChart.new('graph') do |f|
+    #   f.title(text: "Total Transactions Per Event")
+    #   f.xAxis(type: 'category')
+    #   f.xAxis(categories: @corporate.events.select('name').collect {|e| e.name})
+    #   f.yAxis(title: {text: 'Total transactions amount Per Event'})
+    #   f.legend(enabled: false)
+    #   f.series( borderWidth: 0, dataLabels: { enabled: true, format: '{point.y:.1f}%'} )
+    #   f.series( name: 'Events', colorByPoint: true, data: all_transactions.select('total').collect {|t| t.total.to_i} )
+    # end
+              
 
     @transactions_monthly = LazyHighCharts::HighChart.new('graph') do |f|
       f.options[:chart][:defaultSeriesType] = "area"
       f.options[:legend][:layout] = "horizontal"
       f.title(text: "Total Transactions over monthly period")
       f.xAxis(categories: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
-      f.xAxis(type: :datetime)
       f.yAxis [
         {title: {text: "Total Transactions", margin: 70}}
       ]
@@ -42,9 +48,19 @@ class CorporatesController < ApplicationController
       f.chart({defaultSeriesType: "column"})
     end
 
-
-    
-    
+     @ticket_sales = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart({:defaultSeriesType=>"pie", :margin=> [50, 200, 60, 170]})
+      f.title(text: " % of Tickets Sold for Events")
+      f.yAxis [
+        {title: {text: "Total Transactions", margin: 70}}
+      ]
+      f.series({
+      :type => "pie",
+      :name => "Event Sales Precentage",
+      :data => @corporate.percentage_ticket_per_event
+      }
+      )
+    end    
   end
 
   def new

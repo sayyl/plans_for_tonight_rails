@@ -1,2 +1,29 @@
-<h1>Consumer#show</h1>
-<p>Find me in app/views/consumer/show.html.erb</p>
+
+
+<div id="transaction_history">
+  <table class="table table-hover">
+    <caption> <%= @consumer.name %>'s Transaction History </caption>
+    <thead>
+      <tr>
+        <th>Transaction Date</th>
+        <th>Event Name</th>
+        <th>Show-date</th>
+        <th>Location</th>
+        <th>Transaction Amount</th>
+        <th>Number of tickets purchased</th>
+      </tr>
+    </thead> 
+    <tbody>
+      <% @consumer.transactions.each do |transaction| %>
+      <tr>
+        <td><%= formatted_date_two(transaction.created_at) %><%= formatted_date_three(transaction.created_at) %></td>
+        <td> <% transaction.event.name %></td>
+        <td> <% transaction.event.Show_date %></td>
+        <td> <% transaction.event.location %></td> 
+        <td> <%= transaction.total %></td>
+        <td> <%= transaction.tickets.count %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -6,16 +6,20 @@
       <h1>Success!</h1>
     </div>
   </div>
+  <div id="printableArea">
+    <h1>Purchase Receipt </h1><br>
+    <div id="print_link">
+      <i class="fa fa-print fa-2x float_left text_highlight"> </i><input type="button" onclick="printDiv('printableArea')" value="Print" id="print_button" />
+    </div>
+    <h4> You have been charged $<%= '%.2f' % (@transaction.total/100.0).to_i %> CAD </h4>
+    <h3>Event Name: <%= @transaction.event.name %></h3>
+    <h3> Event Details: </h3><h4><%= formatted_date(@transaction.event.show_date) %> | <%= @transaction.event.duration %> minutes</h4><br>
 
-  <h1>Purchase Receipt </h1><br>
-  <h4> You have been charged $<%= '%.2f' % (@transaction.total/100.0).to_i %> CAD </h4>
-  <h3>Event Name: <%= @transaction.event.name %></h3>
-  <h3> Event Details: </h3><h4><%= formatted_date(@transaction.event.show_date) %> | <%= @transaction.event.duration %> minutes</h4><br>
-
-  <h2> Ticket Details </h2>
-  <% @transaction.tickets.each  do |ticket, i| %>
-  <h3>Type: <h4><%= ticket.ticket_type %></h4></h3> 
-  <h3>Price: <h4><%= '%.2f' % (ticket.price/100).to_i %></h4></h3>
-  <h3>Confirmation Number: <h4><%= ticket.confirmation_num %></h4> </h3>
-  <% end %>
+    <h2> Ticket Details </h2>
+    <% @transaction.tickets.each  do |ticket, i| %>
+    <h3>Type: <h4><%= ticket.ticket_type %></h4></h3> 
+    <h3>Price: <h4><%= '%.2f' % (ticket.price/100).to_i %></h4></h3>
+    <h3>Confirmation Number: <h4><%= ticket.confirmation_num %></h4> </h3>
+    <% end %>
+  </div>
 </div>

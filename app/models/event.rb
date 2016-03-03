@@ -12,7 +12,7 @@ class Event < ActiveRecord::Base
   validates :duration, numericality: { only_integer: true }
   validates :show_date, presence: true 
   validates :general_ticket, presence: true
-  validate  :show_date_present
+  # validate  :show_date_present
 
 
   mount_uploader :image, ImageUploader
@@ -69,7 +69,7 @@ class Event < ActiveRecord::Base
       hour_difference = TimeDifference.between(self.show_date, transaction.created_at).in_hours
       transaction_per_hour[hour_difference] += 1
     end
-    return transaction_per_hour
+    return transaction_per_hour.delete_if {|total| total == 0 } 
   end
 
   def recent_transactions_chart
@@ -80,8 +80,7 @@ class Event < ActiveRecord::Base
         {title: {text: "Total Transactions", margin: 70} }
       ]
       f.series(type: "bubble", name: "Number of Transactions", yAxis: 0, data: self.event_transactions_time)
-
-      f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
+      f.legend(align: 'right', verticalAlign: 'top', y: 75, x: 0, layout: 'vertical')
       f.chart({defaultSeriesType: "column"})
     end
   end

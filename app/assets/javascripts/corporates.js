@@ -48,3 +48,9 @@ $('#graph2').on('click', function() {
   $('#transactions_monthly').toggle();
   $('#calendar').toggle();
 });
+
+
+$('#graph4').on('click', function() {
+  $('#ticket_sales').toggle();
+  $('#calendar').toggle();
+});

@@ -1,3 +1,17 @@
+.add_button {
+    display: flex;
+    align-content: flex-end;
+    justify-content: flex-end;
+    margin-right: 90px;
+    margin-bottom: -30px;
+}
+
+.past_button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 /* graphs */
 
 #show_past {
@@ -11,6 +25,12 @@
 }
 
 #transactions_monthly {
+  display: none;
+  width: 1200px;
+  border: 1px solid grey;
+}
+
+#ticket_sales {
   display: none;
   width: 1200px;
   border: 1px solid grey;
