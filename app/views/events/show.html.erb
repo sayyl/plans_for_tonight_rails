@@ -63,8 +63,8 @@
         <% end %>
           </div>
       <% else %> 
-      <p>Event Sold Out</p>
-      <p><%= link_to "<button>Click Here</button>".html_safe, category_event_path(@event.category_id, @event.id) %>to recieve an Email if tickets become available</p>
+      <h3>Event Sold Out</h3>
+      <p><i class="fa fa-envelope float_left icon_color"> </i> <%= link_to "Click Here".html_safe, category_event_path(@event.category_id, @event.id) %> to recieve an Email if tickets become available</p>
     <% end %>
   <% end %>
 </div>

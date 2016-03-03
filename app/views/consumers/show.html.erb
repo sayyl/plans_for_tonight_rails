@@ -1,4 +1,11 @@
-
+<div class="content">
+  <div class="img_base">
+    <div class="header index_bg">
+    </div>
+    <div class="event_header_text">
+      <h1>Welcome</h1>
+    </div>
+  </div>
 
 <div id="transaction_history">
   <table class="table table-hover">
@@ -17,13 +24,14 @@
       <% @consumer.transactions.each do |transaction| %>
       <tr>
         <td><%= formatted_date_two(transaction.created_at) %><%= formatted_date_three(transaction.created_at) %></td>
-        <td> <% transaction.event.name %></td>
-        <td> <% transaction.event.show_date %></td>
-        <td> <% transaction.event.location %></td> 
+        <td> <%= transaction.event.name %></td>
+        <td> <%= formatted_date(transaction.event.show_date) %></td>
+        <td> <%= transaction.event.location %></td> 
         <td> <%= transaction.total %></td>
         <td> <%= transaction.tickets.count %></td>
         <% end %>
       </tr>
     </tbody>
   </table>
+</div>
 </div>

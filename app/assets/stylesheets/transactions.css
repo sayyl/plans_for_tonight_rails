@@ -19,7 +19,24 @@ input[type=button] {
     text-decoration: underline;
 }
 
-.ticket_details {
+#printableArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*align-items: center;*/
+  width: 90%;
+}
+
+.ticket_specs {
   border-radius: 5px;
   border: 1px solid grey;
+  padding-left: 30px;
+  width: 250px;
+}
+
+.ticket_details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }

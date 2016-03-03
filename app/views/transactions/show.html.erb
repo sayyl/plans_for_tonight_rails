@@ -14,15 +14,16 @@
     <h4> You have been charged $<%= '%.2f' % (@transaction.total).to_i %> CAD </h4>
     <h3>Event Name: <%= @transaction.event.name %></h3>
     <h3> Event Details: </h3><h4><%= formatted_date(@transaction.event.show_date) %> | <%= @transaction.event.duration %> minutes</h4><br>
-
-    <h2> Ticket Details </h2>
-    <div class="ticket_details">
-      <% @transaction.tickets.each  do |ticket, i| %>
-      <h3>Type: <%= ticket.ticket_type %></h3> 
-      <h3>Price: <%= '%.2f' % (ticket.price).to_i %></h3>
-      <h3>Confirmation Number: <%= ticket.confirmation_num %></h3>
-      <hr>
-    </div>
-    <% end %>
+      <div class="ticket_details">     
+        <h2> Ticket Details </h2>
+        <% @transaction.tickets.each  do |ticket, i| %>
+        <div class="ticket_specs">
+          <h3>Type: <%= ticket.ticket_type %></h3> 
+          <h3>Price: <%= '%.2f' % (ticket.price).to_i %></h3>
+          <h3>Confirmation Number: <%= ticket.confirmation_num %></h3>
+        </div>
+        <hr>
+        <% end %>
+      </div>
   </div>
 </div>

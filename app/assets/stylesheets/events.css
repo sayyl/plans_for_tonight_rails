@@ -1,3 +1,8 @@
+.icon_color {
+  color: #7012b2;
+  margin-right: 2px;
+}
+
 #transaction-window {
   width: 300px;
   border-radius: 5px;
