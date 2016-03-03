@@ -20,5 +20,6 @@ input[type=button] {
 }
 
 .ticket_details {
-  border: ;
+  border-radius: 5px;
+  border: 1px solid grey;
 }
