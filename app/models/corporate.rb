@@ -22,50 +22,29 @@ class Corporate < ActiveRecord::Base
 
 
   def calculate_event_total_transactions
-    sum = 0
-    transaction_hash = {}
+    result = []
     self.events.each do |event| 
+      sum = 0
       event.transactions.each do |transaction|
         sum += transaction.total.to_i
       end
-      transaction_hash[event.name] = sum
+      result << sum
     end
-    return transaction_hash
+    return result
   end
 
-  # def calculate_transactions_with_date
-  #   transaction_array = []
-  #   self.events.each do |event| 
-  #     event.transactions.each do |transaction| 
-  #       transaction_array << transaction
-  #     end
-  #   end
-  #   return transaction_array
-  # end
+  # def calculate_event_total_transactions
+
 
   def transaction_on(month)
     total = 0
-    self.events.limit(5).each do |event| 
+    self.events.each do |event| 
       event.transactions.limit(5).where("extract(month from created_at) = ?", month).each do |transaction| 
         total += transaction.total.to_f
       end
     end
     return total
   end
-
-  # def transaction_by_month 
-  #   months = {"January" => 0, "February" => 0, "March" => 0, "April" => 0, "May" => 0, "June" => 0, "July" => 0, "August" => 0, "September" => 0, "October"=> 0, "November" => 0, "December" => 0}
-
-  #   # 1. loop the result month and total
-  #   months.each do |key, value|
-  #     months[key] = Transaction.joins(:event).where("events.corporate_id = #{current_user.id}").where("extract(month from created_at) = ?", Date::MONTHNAMES.index(key))
-  #   end
-
-  #  return months
-
-  #   # result = {"january": 8000, "february: 100000"}
-  # end
-
 
 
   def transactions_by_month 
@@ -80,15 +59,14 @@ class Corporate < ActiveRecord::Base
 
    return months
 
-    # result = {"january": 8000, "february: 100000"}
   end
 
 
   def percentage_ticket_per_event
     result = []
-    sum = 0
+    sum = 0.0
     
-    self.events.past.limit(5).each do |e|
+    self.events.past.each do |e|
       total = (e.tickets.count * 100)/(e.tickets.count + e.ticket_available)
       result << {name: e.name, y: total}
       sum += total
@@ -96,6 +74,7 @@ class Corporate < ActiveRecord::Base
 
     for i in 0..result.length-1
       result[i][:y] /= sum
+      result[i][:y] = result[i][:y].round(2) * 100
     end 
 
     return result 

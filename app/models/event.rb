@@ -69,7 +69,7 @@ class Event < ActiveRecord::Base
       hour_difference = TimeDifference.between(self.show_date, transaction.created_at).in_hours
       transaction_per_hour[hour_difference] += 1
     end
-    return transaction_per_hour
+    return transaction_per_hour.delete_if {|total| total == 0 } 
   end
 
   def recent_transactions_chart

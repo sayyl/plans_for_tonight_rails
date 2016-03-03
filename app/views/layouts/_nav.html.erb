@@ -20,7 +20,7 @@
       <% elsif current_user and is_corporate? %>
         <li><%= link_to "Visit Your Dashboard", corporate_path(current_user) %>
       <% else %>
-        <li><%= link_to "View Account", consumer_path(current_user) %>
+        <li></span> <%= link_to "View Account", consumer_path(current_user) %>
       <% end %>
 
 
