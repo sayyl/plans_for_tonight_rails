@@ -1,5 +1,5 @@
-  var $el = $('#categories-page')
-  var $grid = $el.find('.grid').isotope({
+
+  var $grid = $('#categories-page').find('.grid').isotope({
     itemSelector: '.element-item',
     layoutMode: 'fitRows'
   });
@@ -19,7 +19,7 @@
   // filter buttons
   $('.filter-selector').change(setGridFilter);
 
-  $el.find('ul>li').click(function() {
+  $('#categories-page').find('ul>li').click(function() {
       var $this = $(this);
       var group = $this.parent().data('filter-group');
       filters[ group ] = $this.data('filter-value'); 
