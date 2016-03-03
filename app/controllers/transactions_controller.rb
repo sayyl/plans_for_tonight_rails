@@ -22,7 +22,7 @@ class TransactionsController < ApplicationController
     else
       @amount = Transaction.total_price(@event,params[:general_count],params[:child_count])
       stripeCustomer = Stripe::Customer.create(
-        :email => 'bahar_rachapalli@yahoo.com',
+        :email => current_user.email,
         :source => params[:stripeToken]
         )
       charge = Stripe::Charge.create(

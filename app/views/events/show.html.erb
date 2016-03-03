@@ -61,4 +61,9 @@
 <div class="social_share">
   <p>Share this event: <%= social_share_button_tag("Click Here To Share ") %></p>
 </div>
-
+<div class="stripe_logo">
+  <p>Powered By: <%= link_to href: 'https://stripe.com/ca' do %>
+    <%= image_tag "stripe.png", alt: Stripe %>
+    <% end %>
+  </p>
+</div>

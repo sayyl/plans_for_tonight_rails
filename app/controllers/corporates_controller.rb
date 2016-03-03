@@ -14,17 +14,27 @@ class CorporatesController < ApplicationController
 
     all_transactions = Transaction.joins(:event).where("events.corporate_id = #{current_user.id}")
 
+    # @total_transactions = LazyHighCharts::HighChart.new('bar') do |f|
+    #   f.title(text: "Total Transactions Per Event")
+    #   f.xAxis(categories: @corporate.events.select('name').collect {|e| e.name})
+    #   f.yAxis [
+    #     {title: {text: "Total Transactions", margin: 70} },
+    #   ]
+    #   f.series(name: "Total Transaction Amount in CAD$", data: all_transactions.select('total').collect {|t| t.total.to_i})
+
+    #   f.legend(align: 'right', verticalAlign: 'top', y: 75, x: 0, layout: 'vertical')
+    #   f.chart({defaultSeriesType: "column"})
+    # end
     @total_transactions = LazyHighCharts::HighChart.new('bar') do |f|
       f.title(text: "Total Transactions Per Event")
+      f.xAxis(type: 'category')
       f.xAxis(categories: @corporate.events.select('name').collect {|e| e.name})
-      f.yAxis [
-        {title: {text: "Total Transactions", margin: 70} },
-      ]
-      f.series(name: "Total Transaction Amount in CAD$", data: all_transactions.select('total').collect {|t| t.total.to_i})
-
-      # f.legend(align: 'right', verticalAlign: 'top', y: 75, x: 0, layout: 'vertical')
-      f.chart({defaultSeriesType: "column"})
+      f.yAxis(title: {text: 'Total transactions amount Per Event'})
+      f.legend(enabled: false)
+      f.series( borderWidth: 0, dataLabels: { enabled: true, format: '{point.y:.1f}%'} )
+      f.series( name: 'Events', colorByPoint: true, data: all_transactions.select('total').collect {|t| t.total.to_i} )
     end
+              
 
     @transactions_monthly = LazyHighCharts::HighChart.new('graph') do |f|
       f.options[:chart][:defaultSeriesType] = "area"
