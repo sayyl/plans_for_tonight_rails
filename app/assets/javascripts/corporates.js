@@ -49,8 +49,8 @@ $('#graph2').on('click', function() {
   $('#calendar').toggle();
 });
 
-
-$('#graph4').on('click', function() {
+$('#graph3').on('click', function() {
   $('#ticket_sales').toggle();
   $('#calendar').toggle();
 });
+
