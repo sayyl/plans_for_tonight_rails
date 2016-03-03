@@ -1,11 +1,21 @@
-<h1>Transactions#show</h1>
-<p>Find me in app/views/transactions/show.html.erb</p>
+<div class="content">
+  <div class="img_base">
+    <div class="header index_bg">
+    </div>
+    <div class="event_header_text">
+      <h1>Success!</h1>
+    </div>
+  </div>
 
-<p> You have been Charged <%= '%.2f' % (@transaction.total/100.0).to_i %> CAD $ </p>
-<p><%= @transaction.event.name %></p>
-<%= formatted_date(@transaction.event.show_date) %> | <%= @transaction.event.duration %> minutes
+  <h1>Purchase Receipt </h1><br>
+  <h4> You have been charged $<%= '%.2f' % (@transaction.total/100.0).to_i %> CAD </h4>
+  <h3>Event Name: <%= @transaction.event.name %></h3>
+  <h3> Event Details: </h3><h4><%= formatted_date(@transaction.event.show_date) %> | <%= @transaction.event.duration %> minutes</h4><br>
 
-<p> Ticket Details </p>
-<% @transaction.tickets.each  do |ticket, i| %>
-<%= ticket.ticket_type %> <%= '%.2f' % (ticket.price/100).to_i %><br>
-<% end %>
+  <h2> Ticket Details </h2>
+  <% @transaction.tickets.each  do |ticket, i| %>
+  <h3>Type: <h4><%= ticket.ticket_type %></h4></h3> 
+  <h3>Price: <h4><%= '%.2f' % (ticket.price/100).to_i %></h4></h3>
+  <h3>Confirmation Number: <h4><%= ticket.confirmation_num %></h4> </h3>
+  <% end %>
+</div>

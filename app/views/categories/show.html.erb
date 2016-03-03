@@ -98,7 +98,7 @@ function errorFunction(){
     </div>
 
     <div class="grid"> 
-     <% @category.events.twodays.each do |event| %>
+     <% @category.events.future.each do |event| %>
         <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
           
             <div class="eventcard_img_base">

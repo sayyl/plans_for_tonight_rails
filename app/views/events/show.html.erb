@@ -20,7 +20,8 @@
 <div class="row ticket_sales">
 <div class="col-md-4">
   <h3>Tickets remaining: <%= @event.ticket_available %></h3>
-  <div><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= formatted_date(@event.show_date) %> | <%= @event.duration %> minutes</div>
+  <div><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= formatted_date(@event.show_date) %><br>
+  <%= @event.duration %> minutes</div>
   <h4>Description: <br> </h4>
   <h5><%= @event.description %></h5>
 </div>

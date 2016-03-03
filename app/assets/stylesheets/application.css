@@ -170,27 +170,6 @@ h1 {
   padding-right: 100px;
 }
 
-
-
-
-/* ---- corporate/index ---- */
-#show_past {
-  display: none;
-}
-
-#total_transactions {
-  display: none;
-  width: 80%;
-  border: 1px solid grey;
-}
-
-#transaction_monthly {
-  display: none;
-  min-width: 100%;
-  border: 1px solid grey;
-}
-
-
 /* ---- category/show ---- */
 
 .simple-calendar {
