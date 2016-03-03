@@ -66,7 +66,7 @@ function errorFunction(){
       <label>Location:  </label>
       <select id="city-select" class="option-set clearfix filter-selector" data-filter-group="location">
         <option data-filter-value="" class="selected">show all</option>
-        <%= @category.events.pluck(:location).uniq.each do |location| %>
+        <%= @category.events.future.pluck(:location).uniq.each do |location| %>
           <option value="#filter-location-<%= location %>" data-filter-value=".<%= location %>"> <%= location %> </option>
         <% end %>
       </select>
@@ -83,19 +83,20 @@ function errorFunction(){
 
     <div class="grid"> 
      <% @category.events.future.each do |event| %>
+        <%= link_to event_path(event.id) do %>
         <div class="element-item <%= event.location %> <%= event.tags %>" data-category="<%= event.location %>">
           
             <div class="eventcard_img_base">
-              <%= link_to event_path(event.id) do %>
               <div class="card eventcard_overlay"  style="background-image: url(<%=event.image %>)">
               </div>
-              <% end %>
             </div>
             <div class="eventcard_text">
               <h4>Event Title: <%= link_to event.name, event_path(event.id) %> | Location: <%= event.location %></h4>
               <h4><%= formatted_date(event.show_date) %> | <%= event.duration %> mins</h4>
             </div>
+            <% end %>
         </div>
+
       <% end %>
     </div>
   </div>
