@@ -18,12 +18,14 @@
    <% end %>
    <% end %>
 <div class="row ticket_sales">
+  <div class="event_description">
+    <h4><%= @event.description %></h4><br><br>
+  </div>
+  <div class="price_display">
 <div class="col-md-4">
   <h3>Tickets remaining: <%= @event.ticket_available %></h3>
   <div><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= formatted_date(@event.show_date) %><br>
   <%= @event.duration %> minutes</div>
-  <h4>Description: <br> </h4>
-  <h5><%= @event.description %></h5>
 </div>
 <div class="col-md-4 col-md-offset-3">
     <% if current_user && !current_user.my_event(@event) || !current_user %>
@@ -33,13 +35,25 @@
         <%= form_tag({controller: "transactions", action: "create"}, method: "post") do %> 
           <article>
           <div class="ticket_type">
+          <div class"ticket_type_description">
             <%= label_tag(:general_count,"General Admission") %>
             <%= select_tag('general_count', options_for_select((0..10).step(1))) %>
+            </div>
+            <div class="admission_price">
+            <h4>$<%= @event.general_ticket.to_f %>0</h4>
+            </div>
           </div>
-          <div class="ticket_type">
-            <%= label_tag(:child_count,"Child Admission") %>
-            <%= select_tag('child_count', options_for_select((0..10).step(1))) %>
-          </div>
+          <% if @event.child_ticket.to_i >= 1 %>
+            <div class="ticket_type">
+            <div class"ticket_type_description">
+              <%= label_tag(:child_count,"Child Admission") %>
+              <%= select_tag('child_count', options_for_select((0..10).step(1))) %>
+            </div>
+            <div class="admission_price">
+              <h4>$<%= @event.child_ticket.to_f %>0</h4>
+            </div>
+            </div>
+          <% end %>
             <%= hidden_field_tag('event_id', @event.id) %>
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -53,6 +67,7 @@
       <p><%= link_to "<button>Click Here</button>".html_safe, category_event_path(@event.category_id, @event.id) %>to recieve an Email if tickets become available</p>
     <% end %>
   <% end %>
+</div>
 </div>
 </div>
 
