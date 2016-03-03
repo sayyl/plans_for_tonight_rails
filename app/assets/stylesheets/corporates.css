@@ -16,6 +16,12 @@
   border: 1px solid grey;
 }
 
+#ticket_sales {
+  display: none;
+  width: 1200px;
+  border: 1px solid grey;
+}
+
 ul.dropdown-cart{
     min-width:250px;
 }

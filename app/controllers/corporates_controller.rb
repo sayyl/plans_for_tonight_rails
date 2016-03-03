@@ -32,7 +32,6 @@ class CorporatesController < ApplicationController
       f.options[:legend][:layout] = "horizontal"
       f.title(text: "Total Transactions over monthly period")
       f.xAxis(categories: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
-      f.xAxis(type: :datetime)
       f.yAxis [
         {title: {text: "Total Transactions", margin: 70}}
       ]
@@ -45,27 +44,16 @@ class CorporatesController < ApplicationController
      @ticket_sales = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart({:defaultSeriesType=>"pie", :margin=> [50, 0, 0, 0]})
       f.title(text: " % of Tickets Sold for Events")
-    
-     
       f.yAxis [
         {title: {text: "Total Transactions", margin: 70}}
       ]
-      f.series(type: "pie", name: "Total Transactions in CAD$", yAxis: 0, data: @corporate.transactions_by_month)
-
-        f.series({
+      f.series({
       :type => "pie",
       :name => "2008",
-      :size => "45%",
-      :innerSize => "20%",
-      :data => [{ :name => "Firefox", :y => 44.2, :color => "#4572A7" },{ :name => "IE", :y => 46.6, :color => "#AA4643" },{ :name => "Chrome", :y => 3.1, :color => "#89A54E" },{ :name => "Safari", :y => 2.7, :color => "#80699B" },{ :name => "Opera", :y => 2.3, :color => "#3D96AE" },{ :name => "Mozilla", :y => 0.4, :color => "#DB843D" }],
-      :dataLabels=> { :enabled => false }
-  }
-  )
-    end
-
-
-    
-    
+      :data => @corporate.percentage_ticket_per_event
+      }
+      )
+    end    
   end
 
   def new

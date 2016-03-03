@@ -83,6 +83,24 @@ class Corporate < ActiveRecord::Base
     # result = {"january": 8000, "february: 100000"}
   end
 
+
+  def percentage_ticket_per_event
+    result = []
+    sum = 0
+    
+    self.events.past.limit(5).each do |e|
+      total = (e.tickets.count * 100)/(e.tickets.count + e.ticket_available)
+      result << {name: e.name, y: total}
+      sum += total
+    end 
+
+    for i in 0..result.length-1
+      result[i][:y] /= sum
+    end 
+
+    return result 
+  end
+
 end
 
 
