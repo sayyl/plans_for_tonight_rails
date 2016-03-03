@@ -1,5 +1,42 @@
 #transaction-window {
-  background-color:  #A9A9A9;
-  height: 200px;
-  width: 200px;
+  width: 300px;
+  border-radius: 5px;
+  float: right;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
 }
+
+.ticket_sales {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.ticket_type {
+  border-radius: 5px;
+  border: 2px solid #7e00d7;
+  color: #7e00d7;
+  margin-bottom: 10px;
+  padding-top: 25px;
+  padding-right: 10px;
+  padding-bottom: 25px;
+  padding-left: 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 275px;
+}
+
+.text_highlight {
+  color: #7e00d7;
+}
+
+.social_share {
+  padding-left: 50px;
+}
+
