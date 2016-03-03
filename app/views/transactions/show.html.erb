@@ -11,15 +11,18 @@
     <div id="print_link">
       <i class="fa fa-print fa-2x float_left text_highlight"> </i><input type="button" onclick="printDiv('printableArea')" value="Print" id="print_button" />
     </div>
-    <h4> You have been charged $<%= '%.2f' % (@transaction.total/100.0).to_i %> CAD </h4>
+    <h4> You have been charged $<%= '%.2f' % (@transaction.total).to_i %> CAD </h4>
     <h3>Event Name: <%= @transaction.event.name %></h3>
     <h3> Event Details: </h3><h4><%= formatted_date(@transaction.event.show_date) %> | <%= @transaction.event.duration %> minutes</h4><br>
 
     <h2> Ticket Details </h2>
-    <% @transaction.tickets.each  do |ticket, i| %>
-    <h3>Type: <h4><%= ticket.ticket_type %></h4></h3> 
-    <h3>Price: <h4><%= '%.2f' % (ticket.price/100).to_i %></h4></h3>
-    <h3>Confirmation Number: <h4><%= ticket.confirmation_num %></h4> </h3>
+    <div class="ticket_details">
+      <% @transaction.tickets.each  do |ticket, i| %>
+      <h3>Type: <%= ticket.ticket_type %></h3> 
+      <h3>Price: <%= '%.2f' % (ticket.price).to_i %></h3>
+      <h3>Confirmation Number: <%= ticket.confirmation_num %></h3>
+      <hr>
+    </div>
     <% end %>
   </div>
 </div>
