@@ -33,7 +33,7 @@ class TransactionsController < ApplicationController
         :receipt_email => stripeCustomer.email
         )
 
-      @transaction = Transaction.new_trasaction(@event, current_user.id, params[:general_count], params[:child_count], @amount, charge.id)
+      @transaction = Transaction.new_trasaction(@event, current_user.id, params[:general_count], params[:child_count], @amount/100.0, charge.id)
       redirect_to @transaction
     end
 

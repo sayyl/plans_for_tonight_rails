@@ -6,8 +6,7 @@ class Transaction < ActiveRecord::Base
   # validates :successful, allow_blank: true
 
   def self.total_price(event,general_count,child_count)
-    total = (event.general_ticket.to_i * general_count.to_i) + (event.child_ticket.to_i  * child_count.to_i)* 100
-    return total.to_i
+    return ( (event.general_ticket.to_i * general_count.to_i) + (event.child_ticket.to_i  * child_count.to_i) ) * 100
   end
 
   # 1. create the tickets and add them to the consumer
