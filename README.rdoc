@@ -1,28 +1,5 @@
-== README
+== Plans for Tonight
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Plans for Tonight is a ticket sales app built as a team final project for Lighthouse Labs - Web Development Bootcamp. It is a ticket sales platform which allows general consumers to buy discount tickets to events happening within 48 hours as well as event management companies to get a partial return on sunk costs by selling excess tickets - the amount of tickets and ticket pricing is up to the company's discretion. Company accounts are also provided with analytics of their ticket sales (ex. at what times do ticket sales occur, number of transactions per month, event sales comparisons, etc.).
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The app was built with Ruby and Rails for the backend and Javascipt, JQuery, HTML, CSS and styled with some Bootstrap on the frontend. A sandbox version of the Stripe payment API was incorporated to process ticket payments, geoIP was included to automatically filter search results to available events in the customer's city, and lazyhighcharts were used to visualize sale analytics.
